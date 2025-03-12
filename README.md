@@ -1,1 +1,2 @@
-# tancredibosi.github.io
+# tancredibosi.github.
+Artificial Intelligence student (UniBo)
