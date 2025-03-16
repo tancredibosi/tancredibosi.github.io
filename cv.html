@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tancredi Bosi - CV</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* Additional styles specific to CV page */
+        .cv-section {
+            padding: 40px 0;
+        }
+        
+        .cv-section h2 {
+            font-size: 2.2rem;
+            margin-bottom: 30px;
+            color: #2c3e50;
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 10px;
+            display: inline-block;
+        }
+        
+        .cv-item {
+            margin-bottom: 30px;
+        }
+        
+        .cv-item h3 {
+            font-size: 1.5rem;
+            margin-bottom: 5px;
+            color: #2c3e50;
+        }
+        
+        .cv-item .period {
+            font-style: italic;
+            color: #7f8c8d;
+            margin-bottom: 10px;
+            display: block;
+        }
+        
+        .cv-item p {
+            margin-bottom: 10px;
+        }
+        
+        .skills-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 20px;
+        }
+        
+        .skill-tag {
+            background-color: #3498db;
+            color: white;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo-name-container">
+                <img src="images/logo.svg" alt="TB Logo" class="logo">
+                <h1>Tancredi Bosi</h1>
+            </div>
+            <div class="nav-buttons">
+                <a href="index.html" class="btn">Home</a>
+                <a href="projects.html" class="btn">My Projects</a>
+                <a href="cv.html" class="btn active">My CV</a>
+                <a href="contact.html" class="btn">Contact</a>
+            </div>
+        </div>
+    </header>
+
+    <div class="container">
+        <section class="cv-section">
+            <h2>Education</h2>
+            
+            <div class="cv-item">
+                <h3>Master's Degree in Artificial Intelligence</h3>
+                <span class="period">2023 - Present</span>
+                <p>University of Bologna, Italy</p>
+                <p>Focusing on machine learning, deep learning, computer vision, and natural language processing.</p>
+            </div>
+            
+            <div class="cv-item">
+                <h3>Bachelor's Degree in Automation Engineering</h3>
+                <span class="period">2020 - 2023</span>
+                <p>University of Bologna, Italy</p>
+                <p>Thesis on "Machine Learning and comparison of Logistic Regression and Support Vector Machine".</p>
+            </div>
+        </section>
+        
+        <section class="cv-section">
+            <h2>Skills</h2>
+            
+            <div class="cv-item">
+                <h3>Programming Languages</h3>
+                <div class="skills-list">
+                    <span class="skill-tag">Python</span>
+                    <span class="skill-tag">Java</span>
+                    <span class="skill-tag">C++</span>
+                    <span class="skill-tag">JavaScript</span>
+                    <span class="skill-tag">SQL</span>
+                </div>
+            </div>
+            
+            <div class="cv-item">
+                <h3>Frameworks & Libraries</h3>
+                <div class="skills-list">
+                    <span class="skill-tag">TensorFlow</span>
+                    <span class="skill-tag">PyTorch</span>
+                    <span class="skill-tag">Keras</span>
+                    <span class="skill-tag">Scikit-learn</span>
+                    <span class="skill-tag">NLTK</span>
+                    <span class="skill-tag">OpenCV</span>
+                </div>
+            </div>
+            
+            <div class="cv-item">
+                <h3>Tools & Technologies</h3>
+                <div class="skills-list">
+                    <span class="skill-tag">Git</span>
+                    <span class="skill-tag">Docker</span>
+                    <span class="skill-tag">AWS</span>
+                    <span class="skill-tag">Jupyter</span>
+                    <span class="skill-tag">Linux</span>
+                </div>
+            </div>
+        </section>
+        
+        <section class="cv-section">
+            <h2>Experience</h2>
+            
+            
+        </section>
+        
+        <section class="cv-section">
+            <h2>Languages</h2>
+            
+            <div class="cv-item">
+                <div class="skills-list">
+                    <span class="skill-tag">Italian (Native)</span>
+                    <span class="skill-tag">English (Fluent)</span>
+                    <span class="skill-tag">French (Intermediate)</span>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2023 Tancredi Bosi. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>

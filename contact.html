@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tancredi Bosi - Contact</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo-name-container">
+                <img src="images/logo.svg" alt="TB Logo" class="logo">
+                <h1>Tancredi Bosi</h1>
+            </div>
+            <div class="nav-buttons">
+                <a href="index.html" class="btn">Home</a>
+                <a href="projects.html" class="btn">My Projects</a>
+                <a href="cv.html" class="btn">My CV</a>
+                <a href="contact.html" class="btn active">Contact</a>
+            </div>
+        </div>
+    </header>
+
+    <section class="contact">
+        <div class="container">
+            <h2>Contact Me</h2>
+            <p>Feel free to reach out to me through any of the following platforms:</p>
+            
+            <div class="social-links">
+                <a href="https://github.com/tancredibosi" class="social-link">
+                    <i class="fab fa-github"></i>
+                    <span>GitHub</span>
+                </a>
+                
+                <a href="https://www.linkedin.com/in/tancredi-bosi-747004298" class="social-link">
+                    <i class="fab fa-linkedin"></i>
+                    <span>LinkedIn</span>
+                </a>
+                
+                <a href="https://www.instagram.com/tancredibosi" class="social-link">
+                    <i class="fab fa-instagram"></i>
+                    <span>Instagram</span>
+                </a>
+                
+                <div class="social-link" id="email-copy">
+                    <i class="fas fa-envelope"></i>
+                    <span id="email-text">Email</span>
+                    <span id="email-tooltip" class="tooltip">Click to copy: tancredi.bosi@gmail.com</span>
+                </div>
+                
+                <script>
+                    document.addEventListener('DOMContentLoaded', function() {
+                        const emailCopy = document.getElementById('email-copy');
+                        const emailText = document.getElementById('email-text');
+                        
+                        emailCopy.addEventListener('click', function() {
+                            const email = 'tancredi.bosi@gmail.com';
+                            navigator.clipboard.writeText(email).then(function() {
+                                // Success feedback
+                                const originalText = emailText.textContent;
+                                emailText.textContent = 'Copied!';
+                                
+                                setTimeout(function() {
+                                    emailText.textContent = originalText;
+                                }, 2000);
+                            }).catch(function() {
+                                // Error handling
+                                alert('Failed to copy email. Please try again.');
+                            });
+                        });
+                    });
+                </script>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2023 Tancredi Bosi. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>
