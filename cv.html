@@ -8,15 +8,28 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="stylesheet" href="styles.css">
     <script src="theme-switcher.js" defer></script>
+    <script src="language-switcher.js" defer></script>
     <style>
         /* Additional styles specific to CV page */
-        .cv-section {
+        .cv-container {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 30px;
             padding: 40px 0;
         }
         
+        .cv-left-column, .cv-right-column {
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .cv-section {
+            margin-bottom: 40px;
+        }
+        
         .cv-section h2 {
-            font-size: 2.2rem;
-            margin-bottom: 30px;
+            font-size: 1.8rem;
+            margin-bottom: 20px;
             color: var(--heading-color);
             border-bottom: 2px solid var(--heading-color);
             padding-bottom: 10px;
@@ -24,11 +37,11 @@
         }
         
         .cv-item {
-            margin-bottom: 30px;
+            margin-bottom: 25px;
         }
         
         .cv-item h3 {
-            font-size: 1.5rem;
+            font-size: 1.3rem;
             margin-bottom: 5px;
             color: var(--heading-color);
         }
@@ -36,19 +49,20 @@
         .cv-item .period {
             font-style: italic;
             color: var(--text-color);
-            margin-bottom: 10px;
+            margin-bottom: 8px;
             display: block;
         }
         
         .cv-item p {
-            margin-bottom: 10px;
+            margin-bottom: 8px;
+            line-height: 1.4;
         }
         
         .skills-list {
             display: flex;
             flex-wrap: wrap;
             gap: 10px;
-            margin-top: 20px;
+            margin-top: 15px;
         }
         
         .skill-tag {
@@ -57,6 +71,27 @@
             padding: 5px 15px;
             border-radius: 20px;
             font-size: 0.9rem;
+        }
+        
+        .contact-info {
+            margin-bottom: 5px;
+        }
+        
+        .contact-info i {
+            width: 20px;
+            margin-right: 10px;
+            text-align: center;
+        }
+        
+        .project-year {
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+        
+        @media (max-width: 768px) {
+            .cv-container {
+                grid-template-columns: 1fr;
+            }
         }
     </style>
 </head>
@@ -67,95 +102,179 @@
                 <h1>Tancredi Bosi</h1>
             </div>
             <div class="nav-buttons">
-                <a href="index.html" class="btn">Home</a>
-                <a href="projects.html" class="btn">My Projects</a>
-                <a href="cv.html" class="btn active">My CV</a>
-                <a href="contact.html" class="btn">Contact</a>
+                <a href="index.html" class="btn" data-en="Home" data-it="Home">Home</a>
+                <a href="projects.html" class="btn" data-en="My Projects" data-it="I Miei Progetti">My Projects</a>
+                <a href="3dprinting.html" class="btn" data-en="3D Printing" data-it="Stampa 3D">3D Printing</a>
+                <a href="cv.html" class="btn active" data-en="My CV" data-it="Il Mio CV">My CV</a>
+                <a href="contact.html" class="btn" data-en="Contact" data-it="Contatti">Contact</a>
                 <button id="theme-toggle" title="Switch to light mode">
                     <i id="theme-icon" class="fas fa-moon"></i>
+                </button>
+                <button id="language-toggle" title="Switch to English">
+                    <span id="language-icon">IT</span>
                 </button>
             </div>
         </div>
     </header>
 
     <div class="container">
-        <section class="cv-section">
-            <h2>Education</h2>
-            
-            <div class="cv-item">
-                <h3>Master's Degree in Artificial Intelligence</h3>
-                <span class="period">2023 - Present</span>
-                <p>University of Bologna, Italy</p>
-                <p>Focusing on machine learning, deep learning, computer vision, and natural language processing.</p>
+        <div class="cv-container">
+            <div class="cv-left-column">
+                <section class="cv-section">
+                    <h2 data-it="OBIETTIVO PROFESSIONALE" data-en="PROFESSIONAL GOAL">OBIETTIVO PROFESSIONALE</h2>
+                    <div class="cv-item">
+                        <p>AI Engineer</p>
+                        <p>Machine Learning Engineer</p>
+                    </div>
+                </section>
+
+                <section class="cv-section">
+                    <h2 data-it="CONTATTI" data-en="CONTACTS">CONTATTI</h2>
+                    <div class="cv-item">
+                        <p class="contact-info"><i class="fas fa-mobile-alt"></i> +39 3335725485</p>
+                        <p class="contact-info"><i class="fas fa-envelope"></i> tancredi.bosi@gmail.com</p>
+                        <p class="contact-info"><i class="fab fa-linkedin"></i> tancredi-bosi</p>
+                        <p class="contact-info"><i class="fab fa-github"></i> https://github.com/tancredibosi</p>
+                    </div>
+                </section>
+
+                <section class="cv-section">
+                    <h2 data-it="DATA DI NASCITA" data-en="DATE OF BIRTH">DATA DI NASCITA</h2>
+                    <div class="cv-item">
+                        <p>26/09/2001</p>
+                    </div>
+                </section>
+
+                <section class="cv-section">
+                    <h2 data-it="COMPETENZE" data-en="SKILLS">COMPETENZE</h2>
+                    <div class="cv-item">
+                        <ul>
+                            <li data-it="Programmazione Python: Numpy, Pandas, Matplotlib, Tensorflow, PyTorch, Scikit-Learn" data-en="Python Programming: Numpy, Pandas, Matplotlib, Tensorflow, PyTorch, Scikit-Learn">Programmazione Python: Numpy, Pandas, Matplotlib, Tensorflow, PyTorch, Scikit-Learn</li>
+                            <li>Data Analysis</li>
+                            <li data-it="Programmazione C" data-en="C Programming">Programmazione C</li>
+                            <li data-it="Programmi modellazione 3D CAD: Creo, Fusion360, OnShape" data-en="3D CAD Modeling Software: Creo, Fusion360, OnShape">Programmi modellazione 3D CAD: Creo, Fusion360, OnShape</li>
+                            <li data-it="Programmi slicing 3D: Cura" data-en="3D Slicing Software: Cura">Programmi slicing 3D: Cura</li>
+                            <li data-it="Scrittura in LaTeX" data-en="LaTeX Writing">Scrittura in LaTeX</li>
+                        </ul>
+                    </div>
+                </section>
+
+                <section class="cv-section">
+                    <h2 data-it="LINGUE" data-en="LANGUAGES">LINGUE</h2>
+                    <div class="cv-item">
+                        <p data-it="Italiano: madrelingua" data-en="Italian: native">Italiano: madrelingua</p>
+                        <p data-it="Inglese: B2" data-en="English: B2">Inglese: B2</p>
+                    </div>
+                </section>
             </div>
-            
-            <div class="cv-item">
-                <h3>Bachelor's Degree in Automation Engineering</h3>
-                <span class="period">2020 - 2023</span>
-                <p>University of Bologna, Italy</p>
-                <p>Thesis on "Machine Learning and comparison of Logistic Regression and Support Vector Machine".</p>
+
+            <div class="cv-right-column">
+                <section class="cv-section">
+                    <h2 data-it="FORMAZIONE" data-en="EDUCATION">FORMAZIONE</h2>
+                    <div class="cv-item">
+                        <h3 data-it="Laurea Magistrale in Artificial Intelligence" data-en="Master's Degree in Artificial Intelligence">Laurea Magistrale in Artificial Intelligence</h3>
+                        <span class="period" data-it="Bologna, 2023 - in corso" data-en="Bologna, 2023 - ongoing">Bologna, 2023 - in corso</span>
+                        <p data-it="Presso: Alma Mater Studiorum - Università di Bologna" data-en="At: Alma Mater Studiorum - University of Bologna">Presso: Alma Mater Studiorum - Università di Bologna</p>
+                        <p data-it="Indirizzo: Computer systems engineering LM-32" data-en="Program: Computer systems engineering LM-32">Indirizzo: Computer systems engineering LM-32</p>
+                    </div>
+                    
+                    <div class="cv-item">
+                        <h3 data-it="Laurea Triennale in Ingegneria dell'Automazione" data-en="Bachelor's Degree in Automation Engineering">Laurea Triennale in Ingegneria dell'Automazione</h3>
+                        <span class="period">Bologna, 2020 - 2023</span>
+                        <p data-it="Presso: Alma Mater Studiorum - Università di Bologna" data-en="At: Alma Mater Studiorum - University of Bologna">Presso: Alma Mater Studiorum - Università di Bologna</p>
+                        <p data-it="Indirizzo: Curriculum sistemi per l'automazione L-8" data-en="Program: Automation systems curriculum L-8">Indirizzo: Curriculum sistemi per l'automazione L-8</p>
+                        <p data-it="Tesi: Machine Learning e confronto fra Regressione Logistica e Support Vector Machine" data-en="Thesis: Machine Learning and comparison between Logistic Regression and Support Vector Machine">Tesi: Machine Learning e confronto fra Regressione Logistica e Support Vector Machine</p>
+                        <p data-it="Data conseguimento: 19/07/2023" data-en="Date obtained: 19/07/2023">Data conseguimento: 19/07/2023</p>
+                        <p data-it="Votazione finale: 110/110 con lode" data-en="Final grade: 110/110 with honors">Votazione finale: 110/110 con lode
+
+                    <div class="cv-item">
+                        <h3 data-it="Diploma Liceo Scientifico" data-en="Scientific High School Diploma">Diploma Liceo Scientifico</h3>
+                        <span class="period">Faenza, 2015 - 2020</span>
+                        <p data-it="Presso: Liceo Evangelista Torricelli, Faenza (RA)" data-en="At: Liceo Evangelista Torricelli, Faenza (RA)">Presso: Liceo Evangelista Torricelli, Faenza (RA)</p>
+                        <p data-it="Indirizzo: Liceo Scientifico Tradizionale" data-en="Program: Traditional Scientific High School">Indirizzo: Liceo Scientifico Tradizionale</p>
+                        <p data-it="Voto diploma: 92/100" data-en="Final grade: 92/100">Voto diploma: 92/100</p>
+                    </div>
+                </section>
+
+                <section class="cv-section">
+                    <h2 data-it="PROGETTI" data-en="PROJECTS">PROGETTI</h2>
+                    <div class="cv-item">
+                        <h3>Delta Robot</h3>
+                        <span class="period">2023</span>
+                        <p data-it="Modellazione 3D di un Delta Robot in grado di compiere spostamenti di oggetti. Analisi delle forze coinvolte e studio dei materiali e cuscinetti da utilizzare per un utilizzo in industria." data-en="3D modeling of a Delta Robot capable of moving objects. Analysis of the forces involved and study of materials and bearings to be used for industrial applications.">Modellazione 3D di un Delta Robot in grado di compiere spostamenti di oggetti. Analisi delle forze coinvolte e studio dei materiali e cuscinetti da utilizzare per un utilizzo in industria.</p>
+                    </div>
+
+                    <div class="cv-item">
+                        <h3>Sentence Reordering</h3>
+                        <span class="period">2024</span>
+                        <p data-it="Riordinamento di frasi fornite con un ordinamento casuale delle parole tramite l'utilizzo di Transformers ed Embeddings." data-en="Reordering of sentences provided with random word ordering using Transformers and Embeddings.">Riordinamento di frasi fornite con un ordinamento casuale delle parole tramite l'utilizzo di Transformers ed Embeddings.</p>
+                    </div>
+
+                    <div class="cv-item">
+                        <h3>Multiple Courier Planning</h3>
+                        <span class="period">2024</span>
+                        <p data-it="Risoluzione del problema Multiple Courier Planning tramite codice Python e MiniZinc. Sono stati utilizzati quattro approcci: Constraint Programming, SAT, SMT e MIP." data-en="Solving the Multiple Courier Planning problem using Python code and MiniZinc. Four approaches were used: Constraint Programming, SAT, SMT, and MIP.">Risoluzione del problema Multiple Courier Planning tramite codice Python e MiniZinc. Sono stati utilizzati quattro approcci: Constraint Programming, SAT, SMT e MIP.</p>
+                    </div>
+                </section>
+
+                <section class="cv-section">
+                    <h2 data-it="ESPERIENZE PROFESSIONALI" data-en="PROFESSIONAL EXPERIENCE">ESPERIENZE PROFESSIONALI</h2>
+                    <div class="cv-item">
+                        <h3 data-it="Lezioni Private Materie Scientifiche" data-en="Private Tutoring in Scientific Subjects">Lezioni Private Materie Scientifiche</h3>
+                        <span class="period" data-it="2020 - in corso" data-en="2020 - ongoing">2020 - in corso</span>
+                        <p data-it="Lezioni di Matematica, Fisica, Analisi, Chimica, Informatica" data-en="Tutoring in Mathematics, Physics, Calculus, Chemistry, Computer Science">Lezioni di Matematica, Fisica, Analisi, Chimica, Informatica</p>
+                    </div>
+
+                    <div class="cv-item">
+                        <h3>Barista</h3>
+                        <span class="period">2019</span>
+                        <p data-it="Barista presso "San Silvestro Café", Faenza (RA)" data-en="Barista at "San Silvestro Café", Faenza (RA)">Barista presso "San Silvestro Café", Faenza (RA)</p>
+                    </div>
+                </section>
+
+                <section class="cv-section">
+                    <h2 data-it="COMPETENZE TECNICHE" data-en="TECHNICAL SKILLS">COMPETENZE TECNICHE</h2>
+                    <div class="cv-item">
+                        <h3 data-it="Linguaggi di Programmazione" data-en="Programming Languages">Linguaggi di Programmazione</h3>
+                        <div class="skills-list">
+                            <span class="skill-tag">Python</span>
+                            <span class="skill-tag">Java</span>
+                            <span class="skill-tag">C++</span>
+                            <span class="skill-tag">JavaScript</span>
+                            <span class="skill-tag">SQL</span>
+                        </div>
+                    </div>
+                    
+                    <div class="cv-item">
+                        <h3 data-it="Framework e Librerie" data-en="Frameworks & Libraries">Framework e Librerie</h3>
+                        <div class="skills-list">
+                            <span class="skill-tag">TensorFlow</span>
+                            <span class="skill-tag">PyTorch</span>
+                            <span class="skill-tag">Keras</span>
+                            <span class="skill-tag">Scikit-learn</span>
+                            <span class="skill-tag">NLTK</span>
+                            <span class="skill-tag">OpenCV</span>
+                        </div>
+                    </div>
+                    
+                    <div class="cv-item">
+                        <h3 data-it="Strumenti e Tecnologie" data-en="Tools & Technologies">Strumenti e Tecnologie</h3>
+                        <div class="skills-list">
+                            <span class="skill-tag">Git</span>
+                            <span class="skill-tag">Docker</span>
+                            <span class="skill-tag">AWS</span>
+                            <span class="skill-tag">Jupyter</span>
+                            <span class="skill-tag">Linux</span>
+                        </div>
+                    </div>
+                </section>
             </div>
-        </section>
-        
-        <section class="cv-section">
-            <h2>Skills</h2>
-            
-            <div class="cv-item">
-                <h3>Programming Languages</h3>
-                <div class="skills-list">
-                    <span class="skill-tag">Python</span>
-                    <span class="skill-tag">Java</span>
-                    <span class="skill-tag">C++</span>
-                    <span class="skill-tag">JavaScript</span>
-                    <span class="skill-tag">SQL</span>
-                </div>
-            </div>
-            
-            <div class="cv-item">
-                <h3>Frameworks & Libraries</h3>
-                <div class="skills-list">
-                    <span class="skill-tag">TensorFlow</span>
-                    <span class="skill-tag">PyTorch</span>
-                    <span class="skill-tag">Keras</span>
-                    <span class="skill-tag">Scikit-learn</span>
-                    <span class="skill-tag">NLTK</span>
-                    <span class="skill-tag">OpenCV</span>
-                </div>
-            </div>
-            
-            <div class="cv-item">
-                <h3>Tools & Technologies</h3>
-                <div class="skills-list">
-                    <span class="skill-tag">Git</span>
-                    <span class="skill-tag">Docker</span>
-                    <span class="skill-tag">AWS</span>
-                    <span class="skill-tag">Jupyter</span>
-                    <span class="skill-tag">Linux</span>
-                </div>
-            </div>
-        </section>
-        
-        <section class="cv-section">
-            <h2>Experience</h2>
-            
-            
-        </section>
-        
-        <section class="cv-section">
-            <h2>Languages</h2>
-            
-            <div class="cv-item">
-                <div class="skills-list">
-                    <span class="skill-tag">Italian (Native)</span>
-                    <span class="skill-tag">English (Fluent)</span>
-                </div>
-            </div>
-        </section>
+        </div>
     </div>
 
     <footer>
         <div class="container">
-            <p>&copy; 2025 Tancredi Bosi. All rights reserved.</p>
+            <p data-it="&copy; 2025 Tancredi Bosi. Tutti i diritti riservati." data-en="&copy; 2025 Tancredi Bosi. All rights reserved.">&copy; 2025 Tancredi Bosi. Tutti i diritti riservati.</p>
         </div>
     </footer>
 </body>

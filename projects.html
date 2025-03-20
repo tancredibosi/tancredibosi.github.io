@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="styles.css">
     <script src="github-projects.js" defer></script>
     <script src="theme-switcher.js" defer></script>
+    <script src="language-switcher.js" defer></script>
 </head>
 <body>
     <header>
@@ -17,12 +18,16 @@
                 <h1>Tancredi Bosi</h1>
             </div>
             <div class="nav-buttons">
-                <a href="index.html" class="btn">Home</a>
-                <a href="projects.html" class="btn active">My Projects</a>
-                <a href="cv.html" class="btn">My CV</a>
-                <a href="contact.html" class="btn">Contact</a>
+                <a href="index.html" class="btn" data-en="Home" data-it="Home">Home</a>
+                <a href="projects.html" class="btn active" data-en="My Projects" data-it="I Miei Progetti">My Projects</a>
+                <a href="3dprinting.html" class="btn" data-en="3D Printing" data-it="Stampa 3D">3D Printing</a>
+                <a href="cv.html" class="btn" data-en="My CV" data-it="Il Mio CV">My CV</a>
+                <a href="contact.html" class="btn" data-en="Contact" data-it="Contatti">Contact</a>
                 <button id="theme-toggle" title="Switch to light mode">
                     <i id="theme-icon" class="fas fa-moon"></i>
+                </button>
+                <button id="language-toggle" title="Switch to English" style="margin-left: 5px; padding: 5px 8px; font-size: 0.8rem;">
+                    <span id="language-icon">IT</span>
                 </button>
             </div>
         </div>
@@ -30,7 +35,7 @@
 
     <section class="projects">
         <div class="container">
-            <h2>My Projects</h2>
+            <h2 data-en="My Projects" data-it="I Miei Progetti">My Projects</h2>
             <div class="project-grid">
                 <!-- Project cards will be dynamically added here -->
             </div>

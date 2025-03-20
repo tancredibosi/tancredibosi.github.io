@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tancredi Bosi - 3D Printing</title>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+    <script src="3dprinting.js" defer></script>
+    <script src="theme-switcher.js" defer></script>
+    <script src="language-switcher.js" defer></script>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo-name-container">
+                <h1>Tancredi Bosi</h1>
+            </div>
+            <div class="nav-buttons">
+                <a href="index.html" class="btn" data-en="Home" data-it="Home">Home</a>
+                <a href="projects.html" class="btn" data-en="My Projects" data-it="I Miei Progetti">My Projects</a>
+                <a href="3dprinting.html" class="btn active" data-en="3D Printing" data-it="Stampa 3D">3D Printing</a>
+                <a href="cv.html" class="btn" data-en="My CV" data-it="Il Mio CV">My CV</a>
+                <a href="contact.html" class="btn" data-en="Contact" data-it="Contatti">Contact</a>
+                <button id="theme-toggle" title="Switch to light mode">
+                    <i id="theme-icon" class="fas fa-moon"></i>
+                </button>
+                <button id="language-toggle" title="Switch to English" style="margin-left: 5px; padding: 5px 8px; font-size: 0.8rem;">
+                    <span id="language-icon">IT</span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <section class="printing-section">
+        <div class="container">
+            <h2 data-en="My 3D Printing Projects" data-it="I Miei Progetti di Stampa 3D">My 3D Printing Projects</h2>
+            <p class="section-intro" data-en="Welcome to my 3D printing gallery! Here you'll find various models and projects I've designed and printed. I'm passionate about creating functional and decorative objects using 3D printing technology. I am also available to design custom 3D models on commission - feel free to contact me if you have a specific project in mind!" data-it="Benvenuto nella mia galleria di stampa 3D! Qui troverai vari modelli e progetti che ho progettato e stampato. Sono appassionato di creare oggetti funzionali e decorativi utilizzando la tecnologia di stampa 3D. Sono anche disponibile per progettare modelli 3D personalizzati su commissione - non esitare a contattarmi se hai un progetto specifico in mente!">Welcome to my 3D printing gallery! Here you'll find various models and projects I've designed and printed. I'm passionate about creating functional and decorative objects using 3D printing technology. I am also available to design custom 3D models on commission - feel free to contact me if you have a specific project in mind!</p>
+            <div class="project-grid" id="printing-grid">
+                <div class="project-card">
+                    <img src="images/project1.jpg" alt="Project 1" class="project-image">
+                    <div class="project-info">
+                        <h3>Project Title</h3>
+                        <p>Project description goes here. This is a sample project card to demonstrate the layout.</p>
+                        <a href="#" class="project-link">View Project</a>
+                    </div>
+                </div>
+                <!-- 3D printing project cards will be dynamically added here -->
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Tancredi Bosi. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>

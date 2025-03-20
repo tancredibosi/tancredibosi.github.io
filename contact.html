@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="stylesheet" href="styles.css">
     <script src="theme-switcher.js" defer></script>
+    <script src="language-switcher.js" defer></script>
 </head>
 <body>
     <header>
@@ -16,12 +17,16 @@
                 <h1>Tancredi Bosi</h1>
             </div>
             <div class="nav-buttons">
-                <a href="index.html" class="btn">Home</a>
-                <a href="projects.html" class="btn">My Projects</a>
-                <a href="cv.html" class="btn">My CV</a>
-                <a href="contact.html" class="btn active">Contact</a>
+                <a href="index.html" class="btn" data-en="Home" data-it="Home">Home</a>
+                <a href="projects.html" class="btn" data-en="My Projects" data-it="I Miei Progetti">My Projects</a>
+                <a href="3dprinting.html" class="btn" data-en="3D Printing" data-it="Stampa 3D">3D Printing</a>
+                <a href="cv.html" class="btn" data-en="My CV" data-it="Il Mio CV">My CV</a>
+                <a href="contact.html" class="btn active" data-en="Contact" data-it="Contatti">Contact</a>
                 <button id="theme-toggle" title="Switch to light mode">
                     <i id="theme-icon" class="fas fa-moon"></i>
+                </button>
+                <button id="language-toggle" title="Switch to English" style="margin-left: 5px; padding: 5px 8px; font-size: 0.8rem;">
+                    <span id="language-icon">IT</span>
                 </button>
             </div>
         </div>
@@ -29,29 +34,34 @@
 
     <section class="contact">
         <div class="container">
-            <h2>Contact Me</h2>
-            <p>Feel free to reach out to me through any of the following platforms:</p>
+            <h2 data-en="Contact Me" data-it="Contattami">Contact Me</h2>
+            <p data-en="Feel free to reach out to me through any of the following platforms:" data-it="Sentiti libero di contattarmi attraverso una delle seguenti piattaforme:">Feel free to reach out to me through any of the following platforms:</p>
             
             <div class="social-links">
-                <a href="https://github.com/tancredibosi" class="social-link">
+                <a href="https://github.com/tancredibosi" class="social-link" target="_blank" rel="noopener noreferrer">
                     <i class="fab fa-github"></i>
-                    <span>GitHub</span>
+                    <span data-en="GitHub" data-it="GitHub">GitHub</span>
                 </a>
                 
-                <a href="https://www.linkedin.com/in/tancredi-bosi-747004298" class="social-link">
+                <a href="https://www.linkedin.com/in/tancredi-bosi-747004298" class="social-link" target="_blank" rel="noopener noreferrer">
                     <i class="fab fa-linkedin"></i>
-                    <span>LinkedIn</span>
+                    <span data-en="LinkedIn" data-it="LinkedIn">LinkedIn</span>
                 </a>
                 
-                <a href="https://www.instagram.com/tancredibosi" class="social-link">
+                <a href="https://www.instagram.com/tancredibosi" class="social-link" target="_blank" rel="noopener noreferrer">
                     <i class="fab fa-instagram"></i>
-                    <span>Instagram</span>
+                    <span data-en="Instagram" data-it="Instagram">Instagram</span>
+                </a>
+                
+                <a href="https://www.printables.com/@TancrediBosi_1510142" class="social-link" target="_blank" rel="noopener noreferrer">
+                    <i class="fas fa-cube"></i>
+                    <span data-en="Printables" data-it="Printables">Printables</span>
                 </a>
                 
                 <div class="social-link" id="email-copy">
                     <i class="fas fa-envelope"></i>
-                    <span id="email-text">Email</span>
-                    <span id="email-tooltip" class="tooltip">Click to copy: tancredi.bosi@gmail.com</span>
+                    <span id="email-text" data-en="Email" data-it="Email">Email</span>
+                    <span id="email-tooltip" class="tooltip" data-en="Click to copy: tancredi.bosi@gmail.com" data-it="Clicca per copiare: tancredi.bosi@gmail.com">Click to copy: tancredi.bosi@gmail.com</span>
                 </div>
                 
                 <script>
@@ -64,14 +74,16 @@
                             navigator.clipboard.writeText(email).then(function() {
                                 // Success feedback
                                 const originalText = emailText.textContent;
-                                emailText.textContent = 'Copied!';
+                                const currentLang = document.documentElement.lang || 'en';
+                                emailText.textContent = currentLang === 'it' ? 'Copiato!' : 'Copied!';
                                 
                                 setTimeout(function() {
                                     emailText.textContent = originalText;
                                 }, 2000);
                             }).catch(function() {
                                 // Error handling
-                                alert('Failed to copy email. Please try again.');
+                                const currentLang = document.documentElement.lang || 'en';
+                                alert(currentLang === 'it' ? 'Impossibile copiare l\'email. Riprova.' : 'Failed to copy email. Please try again.');
                             });
                         });
                     });
@@ -82,7 +94,7 @@
 
     <footer>
         <div class="container">
-            <p>&copy; 2025 Tancredi Bosi. All rights reserved.</p>
+            <p data-en="&copy; 2025 Tancredi Bosi. All rights reserved." data-it="&copy; 2025 Tancredi Bosi. Tutti i diritti riservati.">&copy; 2025 Tancredi Bosi. All rights reserved.</p>
         </div>
     </footer>
 </body>

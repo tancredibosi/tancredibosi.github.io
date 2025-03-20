@@ -39,6 +39,7 @@ body {
     background-color: var(--bg-color);
     color: var(--text-color);
     line-height: 1.6;
+    padding-top: 70px;
 }
 
 .container {
@@ -53,6 +54,10 @@ header {
     color: var(--heading-color);
     padding: 4px 0;
     border-bottom: 1px solid var(--highlight-border);
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
 }
 
 header .container {
@@ -172,34 +177,147 @@ header p {
 
 .project-grid {
     display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
+    flex-direction: column;
     gap: 30px;
+    max-width: 1200px;
+    margin: 0 auto;
 }
 
-.project-card {
-    background-color: var(--card-bg);
-    border-radius: 4px;
-    overflow: hidden;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
-    transition: transform 0.3s;
+/* 3D Printing specific styles */
+.printing-section .project-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    padding: 20px 0;
+}
+
+.printing-section h2 {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 40px;
+    color: var(--heading-color);
+}
+
+.printing-section .project-card {
+    display: flex;
+    flex-direction: column;
+    background: var(--card-bg);
     border: 1px solid var(--border-color);
-    width: 300px;
-    margin: 0 15px 30px;
+    border-radius: 8px;
+    overflow: hidden;
+    transition: transform 0.3s ease;
 }
 
-.project-card:hover {
-    transform: translateY(-10px);
+.printing-section .project-card:hover {
+    transform: translateY(-5px);
 }
 
-.project-image {
+.printing-section .project-image {
     width: 100%;
     height: 200px;
     object-fit: cover;
 }
 
-.project-info {
+.printing-section .project-card h3 {
+    padding: 15px;
+    margin: 0;
+    font-size: 1.2rem;
+    color: var(--heading-color);
+}
+
+.printing-section .project-card .card-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px;
+    border-top: 1px solid var(--border-color);
+}
+
+.printing-section .project-card .updated {
+    margin: 0;
+    font-size: 0.9rem;
+    color: var(--text-color);
+}
+
+.printing-section .project-card .project-link {
+    padding: 8px 15px;
+    background-color: transparent;
+    color: var(--heading-color);
+    text-decoration: none;
+    border: 1px solid var(--heading-color);
+    border-radius: 4px;
+    transition: all 0.3s ease;
+}
+
+.printing-section .project-card .project-link:hover {
+    background-color: var(--heading-color);
+    color: var(--bg-color);
+}
+
+.printing-section .project-image {
+    width: 100%;
+    height: 200px;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.printing-section .project-info {
     padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.printing-section .details-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: auto;
+}
+
+.printing-section .project-date {
+    font-size: 0.9rem;
+    color: var(--text-color);
+    opacity: 0.8;
+}
+
+.printing-section .project-link {
+    margin: 0;
+    padding: 8px 16px;
+    font-size: 0.85rem;
+}
+
+.project-card {
+    background-color: var(--card-bg);
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s;
+    border: 1px solid var(--border-color);
+    width: 100%;
+    display: flex;
+    align-items: stretch;
+    justify-content: space-between;
+}
+
+.project-card:hover {
+    transform: translateY(-5px);
+}
+
+.project-image {
+    width: 300px;
+    height: 100%;
+    object-fit: cover;
+    flex-shrink: 0;
+    align-self: stretch;
+}
+
+.project-info {
+    padding: 25px;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    position: relative;
+    margin-right: auto;
 }
 
 .project-info h3 {
@@ -210,23 +328,30 @@ header p {
 
 .project-info p {
     margin-bottom: 15px;
+    flex-grow: 1;
 }
 
 .project-link {
-    display: inline-block;
     background-color: #333;
     color: white;
-    padding: 6px 12px;
+    padding: 12px 24px;
     text-decoration: none;
-    border-radius: 2px;
+    border-radius: 8px;
     font-size: 0.9rem;
     transition: background-color 0.3s, transform 0.2s;
+    text-align: center;
+    align-self: center;
+    margin: 25px;
+    white-space: nowrap;
+    margin-left: auto;
+    margin-right: 25px;
 }
 
 .project-link:hover {
-    background-color: #ffffff;
-    color: white;
-    transform: translateY(-1px);
+    background-color: var(--btn-hover-bg);
+    color: var(--btn-hover-color);
+    transform: translateY(-2px);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 }
 
 /* GitHub projects specific styles */
@@ -286,6 +411,11 @@ footer {
     margin: 0 auto 30px;
 }
 
+/* Section intro paragraph spacing */
+.section-intro {
+    margin-bottom: 80px;
+}
+
 .social-links {
     display: flex;
     flex-wrap: wrap;
@@ -324,7 +454,7 @@ footer {
     background-color: var(--card-bg);
     color: var(--text-color);
     text-align: center;
-    border-radius: 2px;
+    border-radius: 8px;
     padding: 5px 10px;
     position: absolute;
     z-index: 1;
@@ -343,23 +473,33 @@ footer {
     opacity: 1;
 }
 
-/* Theme toggle */
-#theme-toggle {
+/* Theme and Language toggle */
+#theme-toggle, #language-toggle {
     background: none;
     border: none;
+    /* border-radius: 50%; */
     color: var(--heading-color);
     font-size: 1.2rem;
     cursor: pointer;
-    padding: 5px;
+    padding: 8px;
     margin-left: 10px;
-    transition: transform 0.3s;
+    transition: all 0.3s ease;
     display: flex;
     align-items: center;
     justify-content: center;
+    width: 36px;
+    height: 36px;
 }
 
-#theme-toggle:hover {
-    transform: rotate(30deg);
+#theme-toggle:hover, #language-toggle:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    border-color: var(--heading-color);
+}
+
+#language-toggle {
+    font-size: 0.9rem;
+    font-weight: bold;
 }
 
 /* Responsive design */
