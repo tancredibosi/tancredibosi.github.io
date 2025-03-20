@@ -33,7 +33,14 @@ const REPOSITORIES_CONFIG = [
         description: 'Computer vision assignments on product detection and classification using CNNs and fine-tuned ResNet-18.',
         description_it: 'Progetti di computer vision sulla rilevazione e classificazione di prodotti con CNN e ResNet-18.'
     },
-    // Add more repositories as needed
+    {
+        name: 'AIII_synthetic_dataset',
+        customTitle: 'HR Syntetic Data Generation',
+        customTitle_it: 'Generazionne dati sintetici per HR',
+        customImage: 'images/PROJECTMAIN_AIII_synthetic_dataset.jpg',
+        description: 'Polarized synthetic data generation of hiring data using SDV python library.',
+        description_it: 'Generazione di dati sintetici polarizzati nell\'ambito HR.'
+    },
 ];
 
 // Maximum number of projects to display if not enough are configured
