@@ -146,20 +146,83 @@ header p {
 /* About section */
 .about {
     padding: 80px 0 60px;
-    text-align: center;
     margin-bottom: 60px;
 }
 
 .about h2 {
     font-size: 2.5rem;
-    margin-bottom: 20px;
+    margin-bottom: 30px;
     color: var(--heading-color);
+    text-align: left;
 }
 
 .about p {
-    font-size: 1.1rem;
-    max-width: 800px;
-    margin: 0 auto 20px;
+    font-size: 1.2rem;
+    margin-bottom: 25px;
+    text-align: justify;
+    line-height: 1.7;
+}
+
+/* Profile container styles */
+.profile-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 50px;
+}
+
+.profile-text {
+    flex: 3;
+    text-align: justify;
+}
+
+.profile-image {
+    flex: 2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.profile-image img {
+    width: 300px;
+    height: 300px;
+    border-radius: 15px;
+    object-fit: cover;
+    border: 3px solid var(--highlight-border);
+    transition: transform 0.3s ease;
+}
+
+.image-caption {
+    margin-top: 15px;
+    font-size: 1.2rem;
+    color: var(--heading-color);
+    font-weight: bold;
+}
+
+/* Responsive design for profile */
+@media (max-width: 900px) {
+    .profile-container {
+        flex-direction: column-reverse;
+        align-items: center;
+    }
+    
+    .profile-text {
+        width: 100%;
+    }
+    
+    .profile-image {
+        margin-bottom: 40px;
+    }
+    
+    .about h2 {
+        text-align: center;
+    }
+    
+    .about p {
+        text-align: center;
+    }
 }
 
 /* Projects page */
