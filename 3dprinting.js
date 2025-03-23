@@ -18,24 +18,14 @@ const PRINTING_PROJECTS = [
         tags: ['PLA', 'Articulated', 'Fantasy', '0.12mm Layer Height']
     },
     {
-        title: 'Phone Stand',
-        title_it: 'Supporto per Telefono',
-        description: 'A practical phone stand with adjustable viewing angles, perfect for desk use. Features cable management and supports phones in both portrait and landscape orientation.',
-        description_it: 'Un supporto pratico per telefono con angoli di visione regolabili, perfetto per l\'uso sulla scrivania. Dispone di gestione dei cavi e supporta i telefoni sia in orientamento verticale che orizzontale.',
-        image: 'images/project2.jpg', // Reusing existing image as placeholder
-        date: '2023-10-20',
-        link: 'https://www.thingiverse.com/thing:12345', // Example link - replace with actual if available
-        tags: ['Functional', 'PLA', 'Desk Accessory', 'Cable Management']
-    },
-    {
-        title: 'Lithophane Lamp',
-        title_it: 'Lampada Litofane',
-        description: 'Custom lithophane lamp with personalized images that illuminate when lit from behind. Printed with white PLA at 0.16mm layer height for optimal light diffusion.',
-        description_it: 'Lampada litofane personalizzata con immagini che si illuminano quando illuminate da dietro. Stampata con PLA bianco a un\'altezza di strato di 0,16 mm per una diffusione ottimale della luce.',
-        image: 'images/project3.jpg', // Reusing existing image as placeholder
-        date: '2024-01-05',
-        link: null,
-        tags: ['Lithophane', 'Lamp', 'Decoration', 'PLA', 'White PLA']
+        title: 'Composable Sunflower',
+        title_it: 'Girasole Composibile',
+        description: '',
+        description_it: '',
+        image: 'images/PRINTINGMAIN_sunflower.jpg', // Reusing existing image as placeholder
+        date: '2024-10-20',
+        link: 'https://www.printables.com/model/1041345-sunflower-composable', // Example link - replace with actual if available
+        tags: [],
     },
     // Add more projects as needed
 ];
