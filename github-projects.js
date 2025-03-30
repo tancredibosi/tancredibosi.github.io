@@ -41,6 +41,14 @@ const REPOSITORIES_CONFIG = [
         description: 'Polarized synthetic data generation of hiring data using SDV python library.',
         description_it: 'Generazione di dati sintetici polarizzati nell\'ambito HR.'
     },
+    {
+        name: 'bosi-Regression_of_Used_Cars_Price',
+        customTitle: 'Regression of Used Cars Price',
+        customTitle_it: 'Regressione del prezzo di Auto usate',
+        customImage: 'images/PROJECTMAIN_bosi-Regression_of_Used_Cars_Price.png',
+        description: 'Explore and predict used car prices using ML techniques.',
+        description_it: 'Esplorazione e predizione del prezzo di auto usate utilizzando tecniche di ML.'
+    },
 ];
 
 // Maximum number of projects to display if not enough are configured
@@ -106,20 +114,47 @@ async function displayGitHubProjects() {
     // Get current language preference
     const currentLanguage = localStorage.getItem('language') || 'it';
     
-    // Show loading state with correct language
-    const loadingText = currentLanguage === 'it' ? 'Caricamento progetti da GitHub...' : 'Loading projects from GitHub...';
-    projectGrid.innerHTML = `<div class="loading" data-en="Loading projects from GitHub..." data-it="Caricamento progetti da GitHub...">${loadingText}</div>`;
+    // First display static cards from configuration
+    if (REPOSITORIES_CONFIG.length > 0) {
+        projectGrid.innerHTML = '';
+        
+        REPOSITORIES_CONFIG.forEach(repoConfig => {
+            const projectCard = document.createElement('div');
+            projectCard.className = 'project-card';
+            
+            // Get current language preference
+            const currentLanguage = localStorage.getItem('language') || 'it';
+            
+            // Set the content based on language preference
+            const displayTitle = currentLanguage === 'it' ? repoConfig.customTitle_it : repoConfig.customTitle;
+            const displayDescription = currentLanguage === 'it' ? repoConfig.description_it : repoConfig.description;
+            const viewOnGithubText = currentLanguage === 'it' ? 'Visualizza su GitHub' : 'View on GitHub';
+            
+            projectCard.innerHTML = `
+                <img src="${repoConfig.customImage}" alt="${displayTitle}" class="project-image">
+                <div class="project-info">
+                    <h3 data-en="${repoConfig.customTitle}" data-it="${repoConfig.customTitle_it}">${displayTitle}</h3>
+                    <p data-en="${repoConfig.description}" data-it="${repoConfig.description_it}">${displayDescription}</p>
+                    <p class="repo-details">
+                        <span class="loading" data-en="Loading from GitHub..." data-it="Caricamento da GitHub...">${currentLanguage === 'it' ? 'Caricamento da GitHub...' : 'Loading from GitHub...'}</span>
+                    </p>
+                    <a href="https://github.com/${GITHUB_USERNAME}/${repoConfig.name}" class="project-link" target="_blank" rel="noopener noreferrer" data-en="View on GitHub" data-it="Visualizza su GitHub">${viewOnGithubText}</a>
+                </div>
+            `;
+            
+            projectGrid.appendChild(projectCard);
+        });
+    }
     
     try {
         const repos = await fetchGitHubProjects();
         
         if (repos.length === 0) {
-            const noReposText = currentLanguage === 'it' ? 'Nessun repository GitHub trovato.' : 'No GitHub repositories found.';
-            projectGrid.innerHTML = `<div class="error" data-en="No GitHub repositories found." data-it="Nessun repository GitHub trovato.">${noReposText}</div>`;
+            // Keep static cards if GitHub fetch fails
             return;
         }
         
-        // Clear the loading message
+        // Clear and update with GitHub data
         projectGrid.innerHTML = '';
         
         // Create a card for each repository
