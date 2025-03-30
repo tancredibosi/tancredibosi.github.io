@@ -9,8 +9,38 @@
     <link rel="stylesheet" href="styles.css">
     <script src="theme-switcher.js" defer></script>
     <script src="language-switcher.js" defer></script>
+    <script src="mobile-menu.js" defer></script>
     <style>
         /* Additional styles specific to CV page */
+        .download-cv-container {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            z-index: 100;
+        }
+        
+        .download-btn {
+            display: inline-flex;
+            align-items: center;
+            background-color: var(--btn-hover-bg);
+            color: var(--btn-hover-color);
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: transform 0.3s, opacity 0.3s;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        }
+        
+        .download-btn i {
+            margin-right: 8px;
+        }
+        
+        .download-btn:hover {
+            transform: translateY(-3px);
+            opacity: 0.9;
+        }
+        
         .cv-container {
             display: grid;
             grid-template-columns: 1fr 2fr;
@@ -92,6 +122,12 @@
             .cv-container {
                 grid-template-columns: 1fr;
             }
+            .download-cv-container {
+                position: static;
+                display: flex;
+                justify-content: center;
+                margin: 20px 0;
+            }
         }
     </style>
 </head>
@@ -101,6 +137,9 @@
             <div class="logo-name-container">
                 <h1>Tancredi Bosi</h1>
             </div>
+            <button id="mobile-menu-toggle" aria-label="Toggle navigation menu">
+                <i class="fas fa-bars"></i>
+            </button>
             <div class="nav-buttons">
                 <a href="index.html" class="btn" data-en="Home" data-it="Home">Home</a>
                 <a href="projects.html" class="btn" data-en="My Projects" data-it="I Miei Progetti">My Projects</a>
@@ -117,7 +156,12 @@
         </div>
     </header>
 
-    <div class="container">
+    <div class="container" style="position: relative;">
+        <div class="download-cv-container">
+            <a href="docs/cv.pdf" class="download-btn" download>
+                <i class="fas fa-download"></i> <span data-en="Download CV" data-it="Scarica CV">Scarica CV</span>
+            </a>
+        </div>
         <div class="cv-container">
             <div class="cv-left-column">
                 <section class="cv-section">

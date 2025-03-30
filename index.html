@@ -6,9 +6,13 @@
     <title>Tancredi Bosi - Portfolio</title>
     <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="anonymous">
     <link rel="stylesheet" href="styles.css">
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin="anonymous"></script>
     <script src="theme-switcher.js" defer></script>
     <script src="language-switcher.js" defer></script>
+    <script src="map.js" defer></script>
+    <script src="mobile-menu.js" defer></script>
 </head>
 <body>
     <header>
@@ -16,6 +20,9 @@
             <div class="logo-name-container">
                 <h1>Tancredi Bosi</h1>
             </div>
+            <button id="mobile-menu-toggle" aria-label="Toggle navigation menu">
+                <i class="fas fa-bars"></i>
+            </button>
             <div class="nav-buttons">
                 <a href="index.html" class="btn active" data-en="Home" data-it="Home">Home</a>
                 <a href="projects.html" class="btn" data-en="My Projects" data-it="I Miei Progetti">My Projects</a>
@@ -39,9 +46,15 @@
                 <p data-en="I am an Artificial Intelligence student at the University of Bologna, passionate about developing innovative solutions using AI technologies. I'm constantly working on projects that challenge me and expand my knowledge in the field. My academic journey has equipped me with a strong foundation in machine learning, natural language processing, and computer vision." data-it="Sono uno studente di Intelligenza Artificiale presso l'Università di Bologna, appassionato di sviluppare soluzioni innovative utilizzando tecnologie di IA. Lavoro costantemente su progetti che mi sfidano e ampliano le mie conoscenze nel campo. Il mio percorso accademico mi ha fornito solide basi in machine learning, elaborazione del linguaggio naturale e computer vision.">I am an Artificial Intelligence student at the University of Bologna, passionate about developing innovative solutions using AI technologies. I'm constantly working on projects that challenge me and expand my knowledge in the field. My academic journey has equipped me with a strong foundation in machine learning, natural language processing, and computer vision.</p>
                 <p data-en="My goal is to apply my skills and expertise to solve real-world problems and contribute to the advancement of AI technology. I believe in creating AI systems that are not only technically robust but also ethically sound and beneficial to society. Through my projects and research, I aim to bridge the gap between theoretical concepts and practical applications." data-it="Il mio obiettivo è applicare le mie competenze e la mia esperienza per risolvere problemi reali e contribuire all'avanzamento della tecnologia di IA. Credo nella creazione di sistemi di IA che siano non solo tecnicamente robusti ma anche eticamente solidi e benefici per la società. Attraverso i miei progetti e la mia ricerca, miro a colmare il divario tra concetti teorici e applicazioni pratiche.">My goal is to apply my skills and expertise to solve real-world problems and contribute to the advancement of AI technology. I believe in creating AI systems that are not only technically robust but also ethically sound and beneficial to society. Through my projects and research, I aim to bridge the gap between theoretical concepts and practical applications.</p>
             </div>
-            <div class="profile-image">
-                <img src="images/profile-placeholder.svg" alt="Tancredi Bosi" id="profile-pic">
-                <p class="image-caption">Tancredi Bosi</p>
+            <div class="profile-image-container">
+                <div class="profile-image">
+                    <img src="images/profile-placeholder.svg" alt="Tancredi Bosi" id="profile-pic">
+                    <p class="image-caption">Tancredi Bosi</p>
+                </div>
+                <div class="profile-map">
+                    <div id="location-map"></div>
+                    <p class="map-caption" data-en="My Location: Bologna, Italy" data-it="La Mia Posizione: Bologna, Italia">My Location: Bologna, Italy</p>
+                </div>
             </div>
         </div>
     </section>
