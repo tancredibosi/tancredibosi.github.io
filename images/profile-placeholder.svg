@@ -1,5 +1,0 @@
-<svg width="300" height="300" xmlns="http://www.w3.org/2000/svg">
-  <rect width="300" height="300" fill="#e0e0e0"/>
-  <text x="150" y="150" font-family="JetBrains Mono, monospace" font-size="16" text-anchor="middle" fill="#333333">Profile Picture Placeholder</text>
-  <text x="150" y="180" font-family="JetBrains Mono, monospace" font-size="12" text-anchor="middle" fill="#333333">Upload your image here</text>
-</svg>
