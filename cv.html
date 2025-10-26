@@ -4,14 +4,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tancredi Bosi - CV</title>
+    <!-- Preserving original font and icon links -->
     <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!-- These files are assumed to exist in your project directory -->
     <link rel="stylesheet" href="styles.css">
     <script src="theme-switcher.js" defer></script>
     <script src="language-switcher.js" defer></script>
     <script src="mobile-menu.js" defer></script>
     <style>
-        /* Additional styles specific to CV page */
+        /* Preserving original inline styles */
         .download-cv-container {
             position: absolute;
             top: 20px;
@@ -132,6 +134,7 @@
     </style>
 </head>
 <body>
+    <!-- Preserving header and navigation -->
     <header>
         <div class="container">
             <div class="logo-name-container">
@@ -157,18 +160,20 @@
     </header>
 
     <div class="container" style="position: relative;">
+        <!-- Preserving Download CV button -->
         <div class="download-cv-container">
             <a href="docs/cv.pdf" class="download-btn" download>
                 <i class="fas fa-download"></i> <span data-en="Download CV" data-it="Scarica CV">Scarica CV</span>
             </a>
         </div>
+        
         <div class="cv-container">
+            <!-- UPDATED LEFT COLUMN -->
             <div class="cv-left-column">
                 <section class="cv-section">
                     <h2 data-it="OBIETTIVO PROFESSIONALE" data-en="PROFESSIONAL GOAL">OBIETTIVO PROFESSIONALE</h2>
                     <div class="cv-item">
-                        <p>AI Engineer</p>
-                        <p>Machine Learning Engineer</p>
+                        <p data-it="AI Engineer" data-en="AI Engineer">AI Engineer</p>
                     </div>
                 </section>
 
@@ -177,28 +182,21 @@
                     <div class="cv-item">
                         <p class="contact-info"><i class="fas fa-mobile-alt"></i> +39 3335725485</p>
                         <p class="contact-info"><i class="fas fa-envelope"></i> tancredi.bosi@gmail.com</p>
-                        <p class="contact-info"><i class="fab fa-linkedin"></i> tancredi-bosi</p>
-                        <p class="contact-info"><i class="fab fa-github"></i> https://github.com/tancredibosi</p>
+                        <p class="contact-info"><i class="fas fa-map-marker-alt"></i> <span data-it="Bologna, Italia" data-en="Bologna, Italy">Bologna, Italia</span></p>
+                        <p class="contact-info"><i class="fas fa-globe"></i> <a href="https://tancredibosi.github.io" target="_blank" rel="noopener noreferrer">tancredibosi.github.io</a></p>
                     </div>
                 </section>
 
                 <section class="cv-section">
-                    <h2 data-it="DATA DI NASCITA" data-en="DATE OF BIRTH">DATA DI NASCITA</h2>
-                    <div class="cv-item">
-                        <p>26/09/2001</p>
-                    </div>
-                </section>
-
-                <section class="cv-section">
-                    <h2 data-it="COMPETENZE" data-en="SKILLS">COMPETENZE</h2>
+                    <h2 data-it="SOFT SKILLS" data-en="SOFT SKILLS">SOFT SKILLS</h2>
                     <div class="cv-item">
                         <ul>
-                            <li data-it="Programmazione Python: Numpy, Pandas, Matplotlib, Tensorflow, PyTorch, Scikit-Learn" data-en="Python Programming: Numpy, Pandas, Matplotlib, Tensorflow, PyTorch, Scikit-Learn">Programmazione Python: Numpy, Pandas, Matplotlib, Tensorflow, PyTorch, Scikit-Learn</li>
-                            <li>Data Analysis</li>
-                            <li data-it="Programmazione C" data-en="C Programming">Programmazione C</li>
-                            <li data-it="Programmi modellazione 3D CAD: Creo, Fusion360, OnShape" data-en="3D CAD Modeling Software: Creo, Fusion360, OnShape">Programmi modellazione 3D CAD: Creo, Fusion360, OnShape</li>
-                            <li data-it="Programmi slicing 3D: Cura" data-en="3D Slicing Software: Cura">Programmi slicing 3D: Cura</li>
-                            <li data-it="Scrittura in LaTeX" data-en="LaTeX Writing">Scrittura in LaTeX</li>
+                            <li data-it="Problem solving" data-en="Problem solving">Problem solving</li>
+                            <li data-it="Velocità nell'apprendimento" data-en="Fast learning">Velocità nell'apprendimento</li>
+                            <li data-it="Organizzazione" data-en="Organization">Organizzazione</li>
+                            <li data-it="Flessibilità" data-en="Flexibility">Flessibilità</li>
+                            <li data-it="Curiosità" data-en="Curiosity">Curiosità</li>
+                            <li data-it="Team working" data-en="Team working">Team working</li>
                         </ul>
                     </div>
                 </section>
@@ -210,105 +208,126 @@
                         <p data-it="Inglese: B2" data-en="English: B2">Inglese: B2</p>
                     </div>
                 </section>
+
+                <section class="cv-section">
+                    <h2 data-it="HOBBY" data-en="HOBBIES">HOBBY</h2>
+                    <div class="cv-item">
+                         <ul>
+                            <li data-it="Stampa 3D" data-en="3D Printing">Stampa 3D</li>
+                            <li data-it="Sviluppo di progetti personali" data-en="Development of personal projects">Sviluppo di progetti personali</li>
+                        </ul>
+                    </div>
+                </section>
             </div>
 
+            <!-- UPDATED RIGHT COLUMN -->
             <div class="cv-right-column">
+
+                <!-- Section reordered to match PDF -->
                 <section class="cv-section">
-                    <h2 data-it="FORMAZIONE" data-en="EDUCATION">FORMAZIONE</h2>
+                    <h2 data-it="ESPERIENZA LAVORATIVA" data-en="WORK EXPERIENCE">ESPERIENZA LAVORATIVA</h2>
+                    <div class="cv-item">
+                        <h3>Laif - Full Stack Developer</h3>
+                        <span class="period" data-it="Febbraio 2025 - in corso" data-en="February 2025 - ongoing">Febbraio 2025 - in corso</span>
+                        <p data-it="Full Stack Developer con focus su AI e backend, utilizzando OpenAI, Pydantic, SQL, FastApi e Postgres." data-en="Full Stack Developer with a focus on AI and backend, using OpenAI, Pydantic, SQL, FastApi and Postgres.">Full Stack Developer con focus su AI e backend, utilizzando OpenAI, Pydantic, SQL, FastApi e Postgres.</p>
+                    </div>
+                    <div class="cv-item">
+                        <h3 data-it="Lezioni Private Materie Scientifiche - Insegnante" data-en="Private Tutoring in Scientific Subjects - Teacher">Lezioni Private Materie Scientifiche - Insegnante</h3>
+                        <span class="period">2020 - 2025</span>
+                    </div>
+                </section>
+
+                <section class="cv-section">
+                    <h2 data-it="ISTRUZIONE E FORMAZIONE" data-en="EDUCATION AND TRAINING">ISTRUZIONE E FORMAZIONE</h2>
                     <div class="cv-item">
                         <h3 data-it="Laurea Magistrale in Artificial Intelligence" data-en="Master's Degree in Artificial Intelligence">Laurea Magistrale in Artificial Intelligence</h3>
-                        <span class="period" data-it="Bologna, 2023 - in corso" data-en="Bologna, 2023 - ongoing">Bologna, 2023 - in corso</span>
+                        <span class="period" data-it="Bologna, 2023 - 2025" data-en="Bologna, 2023 - 2025">Bologna, 2023 - 2025</span>
                         <p data-it="Presso: Alma Mater Studiorum - Università di Bologna" data-en="At: Alma Mater Studiorum - University of Bologna">Presso: Alma Mater Studiorum - Università di Bologna</p>
                         <p data-it="Indirizzo: Computer systems engineering LM-32" data-en="Program: Computer systems engineering LM-32">Indirizzo: Computer systems engineering LM-32</p>
+                        <p data-it="Tesi: Design, Implementation and Benchmarking of a Retrieval-Augmented Chatbot for the Insurance Sector" data-en="Thesis: Design, Implementation and Benchmarking of a Retrieval-Augmented Chatbot for the Insurance Sector">Tesi: Design, Implementation and Benchmarking of a Retrieval-Augmented Chatbot for the Insurance Sector</p>
+                        <p data-it="Votazione Finale: 110/110 con Lode" data-en="Final Grade: 110/110 with Honors">Votazione Finale: 110/110 con Lode</p>
                     </div>
                     
                     <div class="cv-item">
                         <h3 data-it="Laurea Triennale in Ingegneria dell'Automazione" data-en="Bachelor's Degree in Automation Engineering">Laurea Triennale in Ingegneria dell'Automazione</h3>
                         <span class="period">Bologna, 2020 - 2023</span>
                         <p data-it="Presso: Alma Mater Studiorum - Università di Bologna" data-en="At: Alma Mater Studiorum - University of Bologna">Presso: Alma Mater Studiorum - Università di Bologna</p>
-                        <p data-it="Indirizzo: Curriculum sistemi per l'automazione L-8" data-en="Program: Automation systems curriculum L-8">Indirizzo: Curriculum sistemi per l'automazione L-8</p>
                         <p data-it="Tesi: Machine Learning e confronto fra Regressione Logistica e Support Vector Machine" data-en="Thesis: Machine Learning and comparison between Logistic Regression and Support Vector Machine">Tesi: Machine Learning e confronto fra Regressione Logistica e Support Vector Machine</p>
-                        <p data-it="Data conseguimento: 19/07/2023" data-en="Date obtained: 19/07/2023">Data conseguimento: 19/07/2023</p>
-                        <p data-it="Votazione finale: 110/110 con lode" data-en="Final grade: 110/110 with honors">Votazione finale: 110/110 con lode
+                        <p data-it="Votazione finale: 110/110 con Lode" data-en="Final grade: 110/110 with honors">Votazione finale: 110/110 con Lode</p>
+                    </div>
 
                     <div class="cv-item">
                         <h3 data-it="Diploma Liceo Scientifico" data-en="Scientific High School Diploma">Diploma Liceo Scientifico</h3>
-                        <span class="period">Faenza, 2015 - 2020</span>
+                        <span class="period" data-it="Faenza, 2015 - 2020" data-en="Faenza, 2015 - 2020">Faenza, 2015 - 2020</span>
                         <p data-it="Presso: Liceo Evangelista Torricelli, Faenza (RA)" data-en="At: Liceo Evangelista Torricelli, Faenza (RA)">Presso: Liceo Evangelista Torricelli, Faenza (RA)</p>
-                        <p data-it="Indirizzo: Liceo Scientifico Tradizionale" data-en="Program: Traditional Scientific High School">Indirizzo: Liceo Scientifico Tradizionale</p>
-                        <p data-it="Voto diploma: 92/100" data-en="Final grade: 92/100">Voto diploma: 92/100</p>
                     </div>
                 </section>
 
                 <section class="cv-section">
                     <h2 data-it="PROGETTI" data-en="PROJECTS">PROGETTI</h2>
                     <div class="cv-item">
-                        <h3>Delta Robot</h3>
-                        <span class="period">2023</span>
-                        <p data-it="Modellazione 3D di un Delta Robot in grado di compiere spostamenti di oggetti. Analisi delle forze coinvolte e studio dei materiali e cuscinetti da utilizzare per un utilizzo in industria." data-en="3D modeling of a Delta Robot capable of moving objects. Analysis of the forces involved and study of materials and bearings to be used for industrial applications.">Modellazione 3D di un Delta Robot in grado di compiere spostamenti di oggetti. Analisi delle forze coinvolte e studio dei materiali e cuscinetti da utilizzare per un utilizzo in industria.</p>
-                    </div>
-
-                    <div class="cv-item">
-                        <h3>Sentence Reordering</h3>
-                        <span class="period">2024</span>
+                        <h3>Sentence Reordeing - DL, NLP</h3>
                         <p data-it="Riordinamento di frasi fornite con un ordinamento casuale delle parole tramite l'utilizzo di Transformers ed Embeddings." data-en="Reordering of sentences provided with random word ordering using Transformers and Embeddings.">Riordinamento di frasi fornite con un ordinamento casuale delle parole tramite l'utilizzo di Transformers ed Embeddings.</p>
                     </div>
-
-                    <div class="cv-item">
-                        <h3>Multiple Courier Planning</h3>
-                        <span class="period">2024</span>
-                        <p data-it="Risoluzione del problema Multiple Courier Planning tramite codice Python e MiniZinc. Sono stati utilizzati quattro approcci: Constraint Programming, SAT, SMT e MIP." data-en="Solving the Multiple Courier Planning problem using Python code and MiniZinc. Four approaches were used: Constraint Programming, SAT, SMT, and MIP.">Risoluzione del problema Multiple Courier Planning tramite codice Python e MiniZinc. Sono stati utilizzati quattro approcci: Constraint Programming, SAT, SMT e MIP.</p>
+                     <div class="cv-item">
+                        <h3>Legal MCQA with LLM Agents - LLM, NLP</h3>
+                        <p data-it="Sistema multi-agente basato su LLM open-source per la classificazione della risposta corretta attraverso ricerche Web." data-en="Multi-agent system based on open-source LLMs for classifying the correct answer through Web searches.">Sistema multi-agente basato su LLM open-source per la classificazione della risposta corretta attraverso ricerche Web.</p>
                     </div>
-                </section>
-
-                <section class="cv-section">
-                    <h2 data-it="ESPERIENZE PROFESSIONALI" data-en="PROFESSIONAL EXPERIENCE">ESPERIENZE PROFESSIONALI</h2>
-                    <div class="cv-item">
-                        <h3 data-it="Lezioni Private Materie Scientifiche" data-en="Private Tutoring in Scientific Subjects">Lezioni Private Materie Scientifiche</h3>
-                        <span class="period" data-it="2020 - in corso" data-en="2020 - ongoing">2020 - in corso</span>
-                        <p data-it="Lezioni di Matematica, Fisica, Analisi, Chimica, Informatica" data-en="Tutoring in Mathematics, Physics, Calculus, Chemistry, Computer Science">Lezioni di Matematica, Fisica, Analisi, Chimica, Informatica</p>
+                     <div class="cv-item">
+                        <h3>Sexist tweet classification - LLM, NLP</h3>
+                        <p data-it="Progetti NLP sulla classificazione di tweet sessisti con LSTM, ROBERTa e tecniche di prompting LLM." data-en="NLP projects on the classification of sexist tweets with LSTM, ROBERTa and LLM prompting techniques.">Progetti NLP sulla classificazione di tweet sessisti con LSTM, ROBERTa e tecniche di prompting LLM.</p>
                     </div>
-
-                    <div class="cv-item">
-                        <h3>Barista</h3>
-                        <span class="period">2019</span>
-                        <p data-it="Barista presso "San Silvestro Café", Faenza (RA)" data-en="Barista at "San Silvestro Café", Faenza (RA)">Barista presso "San Silvestro Café", Faenza (RA)</p>
+                     <div class="cv-item">
+                        <h3>Synthetic Data Generation - SDV</h3>
+                        <p data-it="Generazione di dati sintetici polarizzati nell'ambito dell'HR." data-en="Generation of polarized synthetic data in the HR field.">Generazione di dati sintetici polarizzati nell'ambito dell'HR.</p>
                     </div>
                 </section>
 
                 <section class="cv-section">
                     <h2 data-it="COMPETENZE TECNICHE" data-en="TECHNICAL SKILLS">COMPETENZE TECNICHE</h2>
                     <div class="cv-item">
-                        <h3 data-it="Linguaggi di Programmazione" data-en="Programming Languages">Linguaggi di Programmazione</h3>
+                        <h3 data-it="Linguaggi" data-en="Languages">Linguaggi</h3>
                         <div class="skills-list">
                             <span class="skill-tag">Python</span>
-                            <span class="skill-tag">Java</span>
-                            <span class="skill-tag">C++</span>
-                            <span class="skill-tag">JavaScript</span>
+                            <span class="skill-tag">C</span>
                             <span class="skill-tag">SQL</span>
+                            <span class="skill-tag">TypeScript</span>
                         </div>
                     </div>
                     
                     <div class="cv-item">
-                        <h3 data-it="Framework e Librerie" data-en="Frameworks & Libraries">Framework e Librerie</h3>
+                        <h3 data-it="Framework AI" data-en="AI Frameworks">Framework AI</h3>
                         <div class="skills-list">
-                            <span class="skill-tag">TensorFlow</span>
-                            <span class="skill-tag">PyTorch</span>
-                            <span class="skill-tag">Keras</span>
-                            <span class="skill-tag">Scikit-learn</span>
-                            <span class="skill-tag">NLTK</span>
+                            <span class="skill-tag">OpenAI</span>
+                            <span class="skill-tag">Tensorflow</span>
+                            <span class="skill-tag">Pytorch</span>
+                            <span class="skill-tag">Langchain</span>
+                            <span class="skill-tag">Langroid</span>
                             <span class="skill-tag">OpenCV</span>
+                            <span class="skill-tag">Hugging Face</span>
+                        </div>
+                    </div>
+
+                    <div class="cv-item">
+                        <h3 data-it="Framework Standard" data-en="Standard Frameworks">Framework Standard</h3>
+                        <div class="skills-list">
+                            <span class="skill-tag">Numpy</span>
+                            <span class="skill-tag">Pandas</span>
+                            <span class="skill-tag">FastApi</span>
+                            <span class="skill-tag">Pydantic</span>
+                            <span class="skill-tag">SQLAlchemy</span>
+                            <span class="skill-tag">aws</span>
+                            <span class="skill-tag">Postgres</span>
+                            <span class="skill-tag">React</span>
                         </div>
                     </div>
                     
                     <div class="cv-item">
-                        <h3 data-it="Strumenti e Tecnologie" data-en="Tools & Technologies">Strumenti e Tecnologie</h3>
+                        <h3 data-it="Strumenti" data-en="Tools">Strumenti</h3>
                         <div class="skills-list">
                             <span class="skill-tag">Git</span>
                             <span class="skill-tag">Docker</span>
-                            <span class="skill-tag">AWS</span>
-                            <span class="skill-tag">Jupyter</span>
-                            <span class="skill-tag">Linux</span>
+                            <span class="skill-tag">CAD</span>
                         </div>
                     </div>
                 </section>
@@ -316,6 +335,7 @@
         </div>
     </div>
 
+    <!-- Preserving footer -->
     <footer>
         <div class="container">
             <p data-it="&copy; 2025 Tancredi Bosi. Tutti i diritti riservati." data-en="&copy; 2025 Tancredi Bosi. All rights reserved.">&copy; 2025 Tancredi Bosi. Tutti i diritti riservati.</p>
