@@ -109,53 +109,15 @@ async function fetchGitHubProjects() {
 
 // Function to create project cards from GitHub data
 async function displayGitHubProjects() {
-    const projectGrid = document.querySelector('#github-projects-grid');
+    const projectGrid = document.querySelector('#projects-grid');
     
     // Get current language preference
     const currentLanguage = localStorage.getItem('language') || 'it';
     
-    // First display static cards from configuration
-    if (REPOSITORIES_CONFIG.length > 0) {
-        projectGrid.innerHTML = '';
-        
-        REPOSITORIES_CONFIG.forEach(repoConfig => {
-            const projectCard = document.createElement('div');
-            projectCard.className = 'project-card';
-            
-            // Get current language preference
-            const currentLanguage = localStorage.getItem('language') || 'it';
-            
-            // Set the content based on language preference
-            const displayTitle = currentLanguage === 'it' ? repoConfig.customTitle_it : repoConfig.customTitle;
-            const displayDescription = currentLanguage === 'it' ? repoConfig.description_it : repoConfig.description;
-            const viewOnGithubText = currentLanguage === 'it' ? 'Visualizza su GitHub' : 'View on GitHub';
-            
-            projectCard.innerHTML = `
-                <img src="${repoConfig.customImage}" alt="${displayTitle}" class="project-image">
-                <div class="project-info">
-                    <h3 data-en="${repoConfig.customTitle}" data-it="${repoConfig.customTitle_it}">${displayTitle}</h3>
-                    <p data-en="${repoConfig.description}" data-it="${repoConfig.description_it}">${displayDescription}</p>
-                    <p class="repo-details">
-                        <span class="loading" data-en="Loading from GitHub..." data-it="Caricamento da GitHub...">${currentLanguage === 'it' ? 'Caricamento da GitHub...' : 'Loading from GitHub...'}</span>
-                    </p>
-                    <a href="https://github.com/${GITHUB_USERNAME}/${repoConfig.name}" class="project-link" target="_blank" rel="noopener noreferrer" data-en="View on GitHub" data-it="Visualizza su GitHub">${viewOnGithubText}</a>
-                </div>
-            `;
-            
-            projectGrid.appendChild(projectCard);
-        });
-    }
-    
     try {
         const repos = await fetchGitHubProjects();
         
-        if (repos.length === 0) {
-            // Keep static cards if GitHub fetch fails
-            return;
-        }
-        
-        // Clear and update with GitHub data
-        projectGrid.innerHTML = '';
+        // Append GitHub cards after the static ones
         
         // Create a card for each repository
         repos.forEach(repo => {
@@ -221,11 +183,44 @@ async function displayGitHubProjects() {
             // Add the card to the grid
             projectGrid.appendChild(projectCard);
         });
+
+        // If GitHub is unavailable or rate-limited, keep the configured
+        // projects visible with their local metadata.
+        const fetchedNames = new Set(repos.map(repo => repo.name));
+        REPOSITORIES_CONFIG
+            .filter(config => !fetchedNames.has(config.name))
+            .forEach(config => {
+                const fallbackCard = document.createElement('div');
+                fallbackCard.className = 'project-card';
+
+                const displayTitle = currentLanguage === 'it' ? config.customTitle_it : config.customTitle;
+                const displayDescription = currentLanguage === 'it' ? config.description_it : config.description;
+                const viewOnGithubText = currentLanguage === 'it' ? 'Visualizza su GitHub' : 'View on GitHub';
+
+                fallbackCard.innerHTML = `
+                    <img src="${config.customImage}" alt="${displayTitle}" class="project-image">
+                    <div class="project-info">
+                        <h3 data-en="${config.customTitle}" data-it="${config.customTitle_it}">${displayTitle}</h3>
+                        <p data-en="${config.description}" data-it="${config.description_it}">${displayDescription}</p>
+                        <p class="repo-details">
+                            <span class="language" data-en="GitHub project" data-it="Progetto GitHub">${currentLanguage === 'it' ? 'Progetto GitHub' : 'GitHub project'}</span>
+                        </p>
+                        <a href="https://github.com/${GITHUB_USERNAME}/${config.name}" class="project-link" target="_blank" rel="noopener noreferrer" data-en="View on GitHub" data-it="Visualizza su GitHub">${viewOnGithubText}</a>
+                    </div>
+                `;
+
+                projectGrid.appendChild(fallbackCard);
+            });
         
     } catch (error) {
         console.error('Error displaying GitHub projects:', error);
         const errorText = currentLanguage === 'it' ? `Errore nel caricamento dei progetti: ${error.message}` : `Error loading projects: ${error.message}`;
-        projectGrid.innerHTML = `<div class="error" data-en="Error loading projects: ${error.message}" data-it="Errore nel caricamento dei progetti: ${error.message}">${errorText}</div>`;
+        const errorDiv = document.createElement('div');
+        errorDiv.className = 'error';
+        errorDiv.setAttribute('data-en', `Error loading projects: ${error.message}`);
+        errorDiv.setAttribute('data-it', `Errore nel caricamento dei progetti: ${error.message}`);
+        errorDiv.textContent = errorText;
+        projectGrid.appendChild(errorDiv);
     }
 }
 

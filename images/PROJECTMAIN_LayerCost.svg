@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 600" role="img" aria-labelledby="lcTitle lcDesc">
+  <title id="lcTitle">LayerCost</title>
+  <desc id="lcDesc">LayerCost logo: three stacked layers and the LayerCost wordmark.</desc>
+  <rect width="600" height="600" fill="#f4f3f1"/>
+  <g transform="translate(300 230) scale(5) translate(-32 -34)">
+    <rect x="8" y="12" width="40" height="12" rx="4" fill="#5b21b6"/>
+    <rect x="16" y="30" width="40" height="12" rx="4" fill="#0a0a0a"/>
+    <rect x="24" y="48" width="32" height="8" rx="4" fill="#0a0a0a"/>
+  </g>
+  <text x="300" y="430" text-anchor="middle" fill="#0a0a0a" font-family="Archivo, 'Helvetica Neue', Arial, sans-serif" font-size="66" font-weight="600" letter-spacing="-1.5">LayerCost</text>
+  <text x="300" y="474" text-anchor="middle" fill="#6b7280" font-family="'JetBrains Mono', 'Space Mono', monospace" font-size="14" letter-spacing="3.2">COSTO E PREZZO DELLE STAMPE 3D</text>
+</svg>
