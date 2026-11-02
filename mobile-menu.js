@@ -9,6 +9,7 @@ document.addEventListener('DOMContentLoaded', function() {
             navButtons.classList.toggle('show');
             menuToggle.classList.toggle('active');
             document.body.classList.toggle('menu-open');
+            menuToggle.setAttribute('aria-expanded', navButtons.classList.contains('show'));
         });
     } else {
         console.error('Mobile menu elements not found');
@@ -23,6 +24,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     navButtons.classList.remove('show');
                     menuToggle.classList.remove('active');
                     document.body.classList.remove('menu-open');
+                    menuToggle.setAttribute('aria-expanded', 'false');
                 }
             });
         });
@@ -38,6 +40,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 navButtons.classList.remove('show');
                 menuToggle.classList.remove('active');
                 document.body.classList.remove('menu-open');
+                menuToggle.setAttribute('aria-expanded', 'false');
             }
         });
     }
@@ -49,6 +52,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 navButtons.classList.remove('show');
                 menuToggle.classList.remove('active');
                 document.body.classList.remove('menu-open');
+                menuToggle.setAttribute('aria-expanded', 'false');
             }
         });
     }

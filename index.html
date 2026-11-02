@@ -1,67 +1,125 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="it">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tancredi Bosi - Portfolio</title>
-    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <meta name="description" content="Tancredi Bosi — AI Engineer. Production AI systems, LLM applications and personal projects.">
+    <title>Tancredi Bosi — AI Engineer</title>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="anonymous">
     <link rel="stylesheet" href="styles.css">
-    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin="anonymous"></script>
     <script src="theme-switcher.js" defer></script>
     <script src="language-switcher.js" defer></script>
-    <script src="map.js" defer></script>
     <script src="mobile-menu.js" defer></script>
+    <script src="site.js" defer></script>
 </head>
-<body>
-    <header>
-        <div class="container">
-            <div class="logo-name-container">
-                <h1>Tancredi Bosi</h1>
-            </div>
-            <button id="mobile-menu-toggle" aria-label="Toggle navigation menu">
-                <i class="fas fa-bars"></i>
-            </button>
-            <div class="nav-buttons">
-                <a href="index.html" class="btn active" data-en="Home" data-it="Home">Home</a>
-                <a href="projects.html" class="btn" data-en="My Projects" data-it="I Miei Progetti">My Projects</a>
-                <a href="3dprinting.html" class="btn" data-en="3D Printing" data-it="Stampa 3D">3D Printing</a>
-                <a href="cv.html" class="btn" data-en="My CV" data-it="Il Mio CV">My CV</a>
-                <a href="contact.html" class="btn" data-en="Contact" data-it="Contatti">Contact</a>
-                <button id="theme-toggle" title="Switch to light mode">
-                    <i id="theme-icon" class="fas fa-moon"></i>
-                </button>
-                <button id="language-toggle" title="Switch to English" style="margin-left: 5px; padding: 5px 8px; font-size: 0.8rem;">
-                    <span id="language-icon">IT</span>
-                </button>
-            </div>
+<body class="home-page">
+    <header class="site-header">
+        <div class="container site-header__inner">
+            <a class="site-name" href="index.html" aria-label="Tancredi Bosi, Home">Tancredi Bosi</a>
+            <button id="mobile-menu-toggle" aria-label="Toggle navigation menu" aria-expanded="false"><i class="fas fa-bars"></i></button>
+            <nav class="nav-buttons" aria-label="Primary navigation">
+                <a href="index.html" class="btn active" aria-current="page" data-en="Home" data-it="Home">Home</a>
+                <a href="projects.html" class="btn" data-en="Projects" data-it="Progetti">Progetti</a>
+                <a href="3dprinting.html" class="btn" data-en="3D Printing" data-it="Stampa 3D">Stampa 3D</a>
+                <a href="cv.html" class="btn">CV</a>
+                <a href="contact.html" class="btn" data-en="Contact" data-it="Contatti">Contatti</a>
+                <div class="header-tools">
+                    <button id="theme-toggle" title="Switch to light mode" aria-label="Toggle color theme"><i id="theme-icon" class="fas fa-moon"></i></button>
+                    <button id="language-toggle" title="Switch to English" aria-label="Switch language"><span id="language-icon">IT</span></button>
+                </div>
+            </nav>
         </div>
     </header>
 
-    <section class="about">
-        <div class="container profile-container">
-            <div class="profile-text">
-                <h2 data-en="About Me" data-it="Chi Sono">About Me</h2>
-                <p data-en="I am an AI Engineer with a Master's degree in Artificial Intelligence from the University of Bologna (110/110 cum laude). I currently work as an AI Engineer at LAIF and as a Consultant AI Engineer at CRIF, building production AI/backend systems and LLM-powered solutions (RAG, multi-agent systems) on the OpenAI and AWS Bedrock stack. I am passionate about turning cutting-edge AI into robust, practical software." data-it="Sono un AI Engineer con una Laurea Magistrale in Intelligenza Artificiale presso l'Università di Bologna (110/110 e lode). Attualmente lavoro come AI Engineer presso LAIF e come Consultant AI Engineer presso CRIF, sviluppando sistemi AI/backend di produzione e soluzioni basate su LLM (RAG, sistemi multi-agente) sullo stack OpenAI e AWS Bedrock. Mi appassiona trasformare l'AI all'avanguardia in software robusto e concreto.">I am an AI Engineer with a Master's degree in Artificial Intelligence from the University of Bologna (110/110 cum laude). I currently work as an AI Engineer at LAIF and as a Consultant AI Engineer at CRIF, building production AI/backend systems and LLM-powered solutions (RAG, multi-agent systems) on the OpenAI and AWS Bedrock stack. I am passionate about turning cutting-edge AI into robust, practical software.</p>
-                <p data-en="My work focuses on building scalable backend systems and integrating AI capabilities into production applications. I also build personal projects: LayerCost, a live 3D-printing quote calculator, and Moth, a small Italian/English speech-to-text model designed for the browser." data-it="Il mio lavoro si concentra sulla costruzione di sistemi backend scalabili e sull'integrazione di capacità AI in applicazioni di produzione. Sviluppo anche progetti personali: LayerCost, un calcolatore di preventivi per stampe 3D live, e Moth, un piccolo modello speech-to-text italiano/inglese pensato per il browser.">My work focuses on building scalable backend systems and integrating AI capabilities into production applications. I also build personal projects: LayerCost, a live 3D-printing quote calculator, and Moth, a small Italian/English speech-to-text model designed for the browser.</p>
-            </div>
-            <div class="profile-image-container">
-                <div class="profile-image">
-                    <img src="images/profile-picture.jpg" alt="Tancredi Bosi" id="profile-pic">
-                    <p class="image-caption">Tancredi Bosi</p>
-                </div>
-                <div class="profile-map">
-                    <div id="location-map"></div>
-                    <p class="map-caption" data-en="My Location: Bologna, Italy" data-it="La Mia Posizione: Bologna, Italia">My Location: Bologna, Italy</p>
+    <main>
+        <section class="home-hero container">
+            <div class="hero-copy" data-reveal>
+                <h1>Tancredi Bosi</h1>
+                <p class="hero-role" data-en="AI Engineer based in Bologna. I build practical AI systems, from LLM-powered products to reliable backend services." data-it="AI Engineer con base a Bologna. Costruisco sistemi AI concreti, da prodotti basati su LLM a servizi backend affidabili.">AI Engineer con base a Bologna. Costruisco sistemi AI concreti, da prodotti basati su LLM a servizi backend affidabili.</p>
+                <div class="hero-actions">
+                    <a href="projects.html" class="button button--primary" data-en="Explore projects" data-it="Esplora i progetti">Esplora i progetti</a>
+                    <a href="docs/cv_it.pdf" class="text-link" download data-href-it="docs/cv_it.pdf" data-href-en="docs/cv_en.pdf" data-en="Download CV" data-it="Scarica il CV">Scarica il CV</a>
                 </div>
             </div>
-        </div>
-    </section>
+            <figure class="hero-portrait" data-reveal>
+                <img src="images/profile-picture.jpg" alt="Portrait of Tancredi Bosi" width="900" height="1200" fetchpriority="high">
+            </figure>
+            <dl class="hero-facts" data-reveal>
+                <div><dt data-en="Now" data-it="Ora">Ora</dt><dd>AI Engineer @ LAIF</dd></div>
+                <div><dt data-en="Consulting" data-it="Consulenza">Consulenza</dt><dd>CRIF</dd></div>
+                <div><dt data-en="Based in" data-it="Base">Base</dt><dd data-en="Bologna, Italy" data-it="Bologna, Italia">Bologna, Italia</dd></div>
+            </dl>
+        </section>
 
-    <footer>
-        <div class="container">
-            <p>&copy; 2026 Tancredi Bosi. All rights reserved.</p>
+        <section class="intro-section container" aria-labelledby="about-heading">
+            <div class="intro-copy" data-reveal>
+                <h2 id="about-heading" data-en="AI that reaches production." data-it="AI che arriva in produzione.">AI che arriva in produzione.</h2>
+                <p data-en="I work on scalable backend systems and LLM-powered applications, with a focus on solutions that are useful, robust and easy to operate. I can help with AI agents, chatbots, business process automation, document management, custom AI models and company-wide AI adoption." data-it="Lavoro su sistemi backend scalabili e applicazioni basate su LLM, con attenzione a soluzioni utili, robuste e semplici da operare. Posso aiutarti con agenti AI, chatbot, automazioni aziendali, organizzazione documentale, modelli AI su misura e percorsi di adozione dell'AI in azienda.">Lavoro su sistemi backend scalabili e applicazioni basate su LLM, con attenzione a soluzioni utili, robuste e semplici da operare. Posso aiutarti con agenti AI, chatbot, automazioni aziendali, organizzazione documentale, modelli AI su misura e percorsi di adozione dell'AI in azienda.</p>
+            </div>
+            <ul class="focus-list" data-reveal>
+                <li>LLM applications</li>
+                <li>RAG &amp; agent systems</li>
+                <li data-en="Backend systems" data-it="Sistemi backend">Sistemi backend</li>
+                <li data-en="Personal products" data-it="Prodotti personali">Prodotti personali</li>
+            </ul>
+        </section>
+
+        <section class="selected-work container" aria-labelledby="selected-heading">
+            <div class="section-heading" data-reveal>
+                <div>
+                    <h2 id="selected-heading" data-en="Built from a real need." data-it="Nati da un'esigenza reale.">Nati da un'esigenza reale.</h2>
+                </div>
+                <a href="projects.html" class="text-link" data-en="All projects" data-it="Tutti i progetti">Tutti i progetti</a>
+            </div>
+            <div class="selected-work__grid">
+                <article class="feature-project" data-reveal>
+                    <img src="images/PROJECTMAIN_LayerCost.jpg" alt="Interfaccia del calcolatore LayerCost" width="900" height="675" loading="lazy">
+                    <div>
+                        <h3>LayerCost</h3>
+                        <p data-en="A 3D-printing quote calculator built for a real print shop." data-it="Un calcolatore di preventivi per stampe 3D pensato per una stamperia reale.">Un calcolatore di preventivi per stampe 3D pensato per una stamperia reale.</p>
+                        <a href="https://layercost.vercel.app" class="text-link" target="_blank" rel="noopener noreferrer" data-en="Open LayerCost" data-it="Apri LayerCost">Apri LayerCost</a>
+                    </div>
+                </article>
+                <article class="feature-project" data-reveal>
+                    <img src="images/PROJECTMAIN_Moth.svg" alt="Moth speech-to-text project cover" width="600" height="400" loading="lazy">
+                    <div>
+                        <h3>Moth</h3>
+                        <p data-en="A compact Italian/English speech-to-text model designed for the browser." data-it="Un modello speech-to-text italiano/inglese compatto, pensato per il browser.">Un modello speech-to-text italiano/inglese compatto, pensato per il browser.</p>
+                        <a href="projects.html#Moth" class="text-link" data-en="See project" data-it="Vedi progetto">Vedi progetto</a>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <section class="workshop container" aria-labelledby="workshop-heading">
+            <div class="section-heading" data-reveal>
+                <h2 id="workshop-heading" data-en="Off the screen." data-it="Fuori dallo schermo.">Fuori dallo schermo.</h2>
+                <a href="3dprinting.html" class="text-link" data-en="All prints" data-it="Tutti i modelli">Tutti i modelli</a>
+            </div>
+            <div class="workshop__grid">
+                <a class="workshop-card" data-reveal href="https://www.printables.com/model/1037327-katana-stand" target="_blank" rel="noopener noreferrer">
+                    <span class="workshop-card__media"><img src="images/PRINTINGMAIN_Katana_Stand.jpg" alt="Katana stampata con supporto da parete" width="900" height="675" loading="lazy"></span>
+                    <span class="workshop-card__caption"><strong>Katana Stand</strong><span>PLA · 2023</span></span>
+                </a>
+                <a class="workshop-card" data-reveal href="https://www.printables.com/model/1041345-sunflower-composable" target="_blank" rel="noopener noreferrer">
+                    <span class="workshop-card__media"><img src="images/PRINTINGMAIN_sunflower.jpg" alt="Girasole componibile stampato in 3D" width="900" height="675" loading="lazy"></span>
+                    <span class="workshop-card__caption"><strong data-en="Composable Sunflower" data-it="Girasole componibile">Girasole componibile</strong><span>PLA · 2024</span></span>
+                </a>
+            </div>
+        </section>
+
+        <section class="home-contact container" data-reveal>
+            <p data-en="Have an AI or product problem worth solving?" data-it="Hai un problema AI o di prodotto che vale la pena risolvere?">Hai un problema AI o di prodotto che vale la pena risolvere?</p>
+            <a href="contact.html" class="button button--primary" data-en="Get in touch" data-it="Contattami">Contattami</a>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container site-footer__inner">
+            <p><strong>Tancredi Bosi</strong> · AI Engineer</p>
+            <div><a href="mailto:tancredi.bosi@gmail.com">tancredi.bosi@gmail.com</a><a href="https://github.com/tancredibosi" target="_blank" rel="noopener noreferrer">GitHub</a><a href="https://www.linkedin.com/in/tancredi-bosi-747004298" target="_blank" rel="noopener noreferrer">LinkedIn</a></div>
+            <p>© 2026</p>
         </div>
     </footer>
 </body>

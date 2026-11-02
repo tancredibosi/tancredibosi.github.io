@@ -1,80 +1,64 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="it">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tancredi Bosi - Projects</title>
-    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <meta name="description" content="Selected AI, machine learning and product projects by Tancredi Bosi.">
+    <title>Projects — Tancredi Bosi</title>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="stylesheet" href="styles.css">
     <script src="github-projects.js" defer></script>
     <script src="theme-switcher.js" defer></script>
     <script src="language-switcher.js" defer></script>
     <script src="mobile-menu.js" defer></script>
+    <script src="site.js" defer></script>
 </head>
-<body>
-    <header>
-        <div class="container">
-            <div class="logo-name-container">
-                <h1>Tancredi Bosi</h1>
-            </div>
-            <button id="mobile-menu-toggle" aria-label="Toggle navigation menu">
-                <i class="fas fa-bars"></i>
-            </button>
-            <div class="nav-buttons">
+<body class="projects-page">
+    <header class="site-header">
+        <div class="container site-header__inner">
+            <a class="site-name" href="index.html" aria-label="Tancredi Bosi, Home">Tancredi Bosi</a>
+            <button id="mobile-menu-toggle" aria-label="Toggle navigation menu" aria-expanded="false"><i class="fas fa-bars"></i></button>
+            <nav class="nav-buttons" aria-label="Primary navigation">
                 <a href="index.html" class="btn" data-en="Home" data-it="Home">Home</a>
-                <a href="projects.html" class="btn active" data-en="My Projects" data-it="I Miei Progetti">My Projects</a>
-                <a href="3dprinting.html" class="btn" data-en="3D Printing" data-it="Stampa 3D">3D Printing</a>
-                <a href="cv.html" class="btn" data-en="My CV" data-it="Il Mio CV">My CV</a>
-                <a href="contact.html" class="btn" data-en="Contact" data-it="Contatti">Contact</a>
-                <button id="theme-toggle" title="Switch to light mode">
-                    <i id="theme-icon" class="fas fa-moon"></i>
-                </button>
-                <button id="language-toggle" title="Switch to English" style="margin-left: 5px; padding: 5px 8px; font-size: 0.8rem;">
-                    <span id="language-icon">IT</span>
-                </button>
-            </div>
+                <a href="projects.html" class="btn active" aria-current="page" data-en="Projects" data-it="Progetti">Progetti</a>
+                <a href="3dprinting.html" class="btn" data-en="3D Printing" data-it="Stampa 3D">Stampa 3D</a>
+                <a href="cv.html" class="btn">CV</a>
+                <a href="contact.html" class="btn" data-en="Contact" data-it="Contatti">Contatti</a>
+                <div class="header-tools"><button id="theme-toggle" title="Switch to light mode" aria-label="Toggle color theme"><i id="theme-icon" class="fas fa-moon"></i></button><button id="language-toggle" title="Switch to English" aria-label="Switch language"><span id="language-icon">IT</span></button></div>
+            </nav>
         </div>
     </header>
-
-    <section class="projects">
-        <div class="container">
-            <h2 data-en="My Projects" data-it="I Miei Progetti">My Projects</h2>
-
-            <div class="project-grid" id="projects-grid">
-                <div class="project-card">
-                    <img src="images/PROJECTMAIN_LayerCost.svg" alt="LayerCost" class="project-image">
-                    <div class="project-info">
-                        <h3>LayerCost</h3>
-                        <p data-en="3D-printing quote calculator built for a real print shop: cost and price for single prints or batches, .3mf import. Live and open source." data-it="Calcolatore di preventivi per stampe 3D pensato per una stamperia reale: costo e prezzo di stampe singole o lotti, import .3mf. Prodotto live e open source.">Calcolatore di preventivi per stampe 3D pensato per una stamperia reale: costo e prezzo di stampe singole o lotti, import .3mf. Prodotto live e open source.</p>
-                        <p class="repo-details">
-                            <span class="language" data-en="Full-stack, live product" data-it="Full-stack, prodotto live">Full-stack, prodotto live</span>
-                            <span class="updated">React · TypeScript</span>
-                        </p>
-                        <a href="https://layercost.vercel.app" class="project-link" target="_blank" rel="noopener noreferrer" data-en="Open live app" data-it="Apri l'app">Apri l'app</a>
-                    </div>
-                </div>
-                <div class="project-card">
-                    <img src="images/PROJECTMAIN_Moth.svg" alt="Moth" class="project-image">
-                    <div class="project-info">
-                        <h3>Moth</h3>
-                        <p data-en="Italian/English code-switching speech-to-text model built for the browser: Whisper-tiny encoder + CTC head, ~11.6M parameters, 19.4 MB." data-it="Modello speech-to-text italiano/inglese per il browser, con code-switching: encoder Whisper-tiny + testa CTC, ~11,6 M parametri, 19,4 MB.">Modello speech-to-text italiano/inglese per il browser, con code-switching: encoder Whisper-tiny + testa CTC, ~11,6 M parametri, 19,4 MB.</p>
-                        <p class="repo-details">
-                            <span class="language" data-en="STT, personal project" data-it="STT, progetto personale">STT, progetto personale</span>
-                            <span class="updated">Python · ONNX</span>
-                        </p>
-                        <span class="project-link project-link-disabled" data-en="Private project" data-it="Progetto privato">Progetto privato</span>
-                    </div>
-                </div>
-                <!-- GitHub project cards will be appended here -->
+    <main class="projects-main container">
+        <section class="page-intro" data-reveal>
+            <h1 data-en="Projects with a practical edge." data-it="Progetti con uno scopo concreto.">Progetti con uno scopo concreto.</h1>
+            <div class="page-intro__aside">
+                <p data-en="AI systems, experiments and products — each built to answer a specific question or serve a real workflow." data-it="Sistemi AI, esperimenti e prodotti: ognuno costruito per rispondere a una domanda specifica o servire un flusso di lavoro reale.">Sistemi AI, esperimenti e prodotti: ognuno costruito per rispondere a una domanda specifica o servire un flusso di lavoro reale.</p>
+                <a href="contact.html" class="button button--primary" data-en="Get in touch" data-it="Contattami">Contattami</a>
             </div>
-        </div>
-    </section>
-
-    <footer>
-        <div class="container">
-            <p>&copy; 2026 Tancredi Bosi. All rights reserved.</p>
-        </div>
-    </footer>
+        </section>
+        <section aria-label="Projects">
+            <div class="project-grid" id="projects-grid">
+                <article class="project-card" id="LayerCost" data-reveal>
+                    <img src="images/PROJECTMAIN_LayerCost.svg" alt="LayerCost logo" class="project-image project-image--contain" width="600" height="600">
+                    <div class="project-info">
+                        <h2>LayerCost</h2>
+                        <p data-en="3D-printing quote calculator built for a real print shop: cost and price for single prints or batches, with .3mf import." data-it="Calcolatore di preventivi per stampe 3D pensato per una stamperia reale: costo e prezzo di stampe singole o lotti, con import .3mf.">Calcolatore di preventivi per stampe 3D pensato per una stamperia reale: costo e prezzo di stampe singole o lotti, con import .3mf.</p>
+                        <p class="project-meta" data-en="Live product · Full-stack" data-it="Prodotto live · Full-stack">Prodotto live · Full-stack</p>
+                        <a href="https://layercost.vercel.app" class="text-link" target="_blank" rel="noopener noreferrer" data-en="Open live app" data-it="Apri l'app">Apri l'app</a>
+                    </div>
+                </article>
+                <article class="project-card" id="Moth" data-reveal>
+                    <img src="images/PROJECTMAIN_Moth.svg" alt="Moth speech-to-text project cover" class="project-image" width="600" height="400">
+                    <div class="project-info">
+                        <h2>Moth</h2>
+                        <p data-en="Italian/English code-switching speech-to-text model designed for the browser: Whisper-tiny encoder + CTC head, ~11.6M parameters." data-it="Modello speech-to-text italiano/inglese per il browser, con code-switching: encoder Whisper-tiny + testa CTC, ~11,6 M parametri.">Modello speech-to-text italiano/inglese per il browser, con code-switching: encoder Whisper-tiny + testa CTC, ~11,6 M parametri.</p>
+                        <p class="project-meta" data-en="Personal project · STT" data-it="Progetto personale · STT">Progetto personale · STT</p>
+                    </div>
+                </article>
+            </div>
+        </section>
+    </main>
+    <footer class="site-footer"><div class="container site-footer__inner"><p><strong>Tancredi Bosi</strong> · AI Engineer</p><div><a href="mailto:tancredi.bosi@gmail.com">tancredi.bosi@gmail.com</a><a href="https://github.com/tancredibosi" target="_blank" rel="noopener noreferrer">GitHub</a><a href="https://www.linkedin.com/in/tancredi-bosi-747004298" target="_blank" rel="noopener noreferrer">LinkedIn</a></div><p>© 2026</p></div></footer>
 </body>
 </html>

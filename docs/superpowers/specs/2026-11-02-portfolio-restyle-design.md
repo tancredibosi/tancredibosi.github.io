@@ -11,8 +11,8 @@ Refresh Tancredi Bosi's personal portfolio without losing its minimal black-and-
 **Live interactions:** theme and language switches, touch-scrollable media rows on small screens, working project/contact/CV links. No decorative animations or fake product UI.
 
 ## Information architecture
-- **Home:** clear identity hero, role/location facts, portrait, primary actions; concise biography; selected work (LayerCost and Moth); closing contact call-to-action.
-- **Projects:** one unsegmented project archive, two-column grid on desktop, one column on mobile. Each item uses a square asset, concise description, tags, and its actual destination.
+- **Home:** clear identity hero, role/location facts, portrait, primary actions; concise biography; selected work (LayerCost and Moth); an "off the screen" strip with the two real 3D prints; closing contact call-to-action.
+- **Projects:** one unsegmented archive closing with a contact card as the eighth grid cell. Two-column grid on desktop, one on mobile. Each item: square asset, concise description, small category line, real destination. No GitHub language/date metadata, so all cards render statically from config.
 - **CV:** keep content and PDFs intact. Improve scanability and mobile order; avoid browser-default links.
 - **3D printing:** concise introductory copy, two real works, corrected Katana metadata, commission/contact action.
 - **Contact:** direct email/social list alongside the working form. No decorative icon-card row.
@@ -20,7 +20,7 @@ Refresh Tancredi Bosi's personal portfolio without losing its minimal black-and-
 ## Visual system
 - Default dark, light optional; keep black/white/grey palette and let project images supply colour.
 - One content frame: `max-width: 1200px`, symmetric horizontal padding.
-- Use a readable sans text face with mono retained only for technical metadata/code-like content. Avoid justified text.
+- Single readable sans face (DM Sans) across the site; no justified text.
 - Square/near-square media, 6px corner radius, tone-step panels, no resting shadows, no decorative borders.
 - Clear scale: display identity, page heading, card title, readable body, small metadata. Limit text measure to roughly 65 characters.
 - Buttons are flat, high contrast, at least 44px high. Links are high-contrast with underline/focus states.

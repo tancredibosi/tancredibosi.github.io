@@ -1,228 +1,81 @@
-/**
- * GitHub Projects Fetcher
- * This script fetches repository information from GitHub API and displays it on the projects page.
- * It allows for custom repository selection, titles, and images.
- */
-
-const GITHUB_USERNAME = 'tancredibosi'; // Replace with your GitHub username if different
-
-// Configuration for repositories to display
-// Add or remove repositories from this list to control what's displayed
 const REPOSITORIES_CONFIG = [
     {
-        name: 'LLM_Agents_Multiple-Choice_QA', // Repository name as it appears on GitHub
-        customTitle: 'Legal MCQA with LLM Agents', // Custom title to display
-        customTitle_it: 'MCQA Legale con Agenti LLM', // Italian title
-        customImage: 'images/PROJECTMAIN_LLM_Agents_Multiple-Choice_QA.jpg', // Custom image path
-        description: 'Multi-agent system built on open-source small language models for response classification on legal MCQA, with web search and agent collaboration.', // Set to null to use GitHub description, or provide a custom one
-        description_it: 'Sistema multi-agente basato su Small Language Models open-source per la classificazione delle risposte in MCQA legali, con ricerca web e collaborazione tra agenti.'
+        name: 'LLM_Agents_Multiple-Choice_QA',
+        customTitle: 'Legal MCQA with LLM Agents',
+        customTitle_it: 'MCQA Legale con Agenti LLM',
+        customImage: 'images/PROJECTMAIN_LLM_Agents_Multiple-Choice_QA.jpg',
+        description: 'Multi-agent system built on open-source small language models for legal MCQA, with web search and agent collaboration.',
+        description_it: 'Sistema multi-agente basato su Small Language Models open-source per MCQA legali, con ricerca web e collaborazione tra agenti.',
+        category: 'LLM · NLP'
     },
     {
         name: 'nlp-assignments',
         customTitle: 'Classification of Sexist Tweets',
         customTitle_it: 'Classificazione di Tweet Sessisti',
         customImage: 'images/PROJECTMAIN_nlp-assignments.jpg',
-        description: 'NLP assignments on sexist tweet classification using LSTMs, RoBERTa, and LLM prompting techniques.',
-        description_it: 'Progetti NLP sulla classificazione di tweet sessisti con LSTM, RoBERTa e tecniche di prompting LLM.'
+        description: 'NLP work on sexist-tweet classification with LSTMs, RoBERTa and LLM prompting techniques.',
+        description_it: 'Lavoro NLP sulla classificazione di tweet sessisti con LSTM, RoBERTa e tecniche di prompting LLM.',
+        category: 'NLP'
     },
     {
         name: 'IPCV_images_assignment2',
-        customTitle: 'Groceries product classification and detection',
-        customTitle_it: 'Classificazione e rilevamento di prodotti alimentari',
+        customTitle: 'Grocery product detection',
+        customTitle_it: 'Rilevamento di prodotti alimentari',
         customImage: 'images/PROJECTMAIN_IPCV_images_assignment2.jpg',
-        description: 'Computer vision assignments on product detection and classification using CNNs and fine-tuned ResNet-18.',
-        description_it: 'Progetti di computer vision sulla rilevazione e classificazione di prodotti con CNN e ResNet-18.'
+        description: 'Computer-vision work on grocery detection and classification using CNNs and fine-tuned ResNet-18.',
+        description_it: 'Lavoro di computer vision su rilevazione e classificazione di prodotti con CNN e ResNet-18.',
+        category: 'Computer vision'
     },
     {
         name: 'AIII_synthetic_dataset',
         customTitle: 'HR Synthetic Data Generation',
         customTitle_it: 'Generazione dati sintetici per HR',
         customImage: 'images/PROJECTMAIN_AIII_synthetic_dataset.jpg',
-        description: 'Polarized synthetic data generation of hiring data using SDV python library.',
-        description_it: 'Generazione di dati sintetici polarizzati nell\'ambito HR.'
+        description: 'Synthetic hiring-data generation built with SDV.',
+        description_it: 'Generazione di dati sintetici per l’ambito HR con SDV.',
+        category: 'Data · ML'
     },
     {
         name: 'bosi-Regression_of_Used_Cars_Price',
         customTitle: 'Regression of Used Cars Price',
-        customTitle_it: 'Regressione del prezzo di Auto usate',
-        customImage: 'images/PROJECTMAIN_bosi-Regression_of_Used_Cars_Price.png',
-        description: 'Explore and predict used car prices using ML techniques.',
-        description_it: 'Esplorazione e predizione del prezzo di auto usate utilizzando tecniche di ML.'
+        customTitle_it: 'Regressione del prezzo di auto usate',
+        customImage: 'images/PROJECTMAIN_bosi-Regression_of_Used_Cars_Price.jpg',
+        description: 'Machine-learning exploration and prediction of used car prices.',
+        description_it: 'Esplorazione e previsione del prezzo di auto usate con tecniche di machine learning.',
+        category: 'Machine learning'
     },
 ];
 
-// Maximum number of projects to display if not enough are configured
-const MAX_FALLBACK_PROJECTS = 6;
+function projectCard(config, language) {
+    const title = language === 'it' ? config.customTitle_it : config.customTitle;
+    const description = language === 'it' ? config.description_it : config.description;
+    const action = language === 'it' ? 'Vedi su GitHub' : 'View on GitHub';
+    const href = `https://github.com/tancredibosi/${config.name}`;
 
-// Function to fetch GitHub repositories
-async function fetchGitHubProjects() {
-    try {
-        // If we have configured repositories, fetch them specifically
-        if (REPOSITORIES_CONFIG.length > 0) {
-            const configuredRepos = [];
-            
-            // For each configured repository, fetch its data
-            for (const repoConfig of REPOSITORIES_CONFIG) {
-                try {
-                    const response = await fetch(`https://api.github.com/repos/${GITHUB_USERNAME}/${repoConfig.name}`);
-                    
-                    if (!response.ok) {
-                        console.warn(`Could not fetch repository ${repoConfig.name}: ${response.status}`);
-                        continue;
-                    }
-                    
-                    const repoData = await response.json();
-                    
-                    // Add custom properties to the repository data
-                    repoData.customTitle = repoConfig.customTitle;
-                    repoData.customTitle_it = repoConfig.customTitle_it;
-                    repoData.customImage = repoConfig.customImage;
-                    if (repoConfig.description !== null) {
-                        repoData.customDescription = repoConfig.description;
-                    }
-                    if (repoConfig.description_it !== null) {
-                        repoData.description_it = repoConfig.description_it;
-                    }
-                    
-                    configuredRepos.push(repoData);
-                } catch (error) {
-                    console.error(`Error fetching repository ${repoConfig.name}:`, error);
-                }
-            }
-            
-            return configuredRepos;
-        } else {
-            // Fallback: fetch latest repositories if no configuration is provided
-            const response = await fetch(`https://api.github.com/users/${GITHUB_USERNAME}/repos?sort=updated&per_page=${MAX_FALLBACK_PROJECTS}`);
-            
-            if (!response.ok) {
-                throw new Error(`GitHub API error: ${response.status}`);
-            }
-            
-            return await response.json();
-        }
-    } catch (error) {
-        console.error('Error fetching GitHub projects:', error);
-        return [];
-    }
+    return `
+        <article class="project-card" data-reveal>
+            <img src="${config.customImage}" alt="${title}" class="project-image" width="600" height="600" loading="lazy">
+            <div class="project-info">
+                <h2 data-en="${config.customTitle}" data-it="${config.customTitle_it}">${title}</h2>
+                <p data-en="${config.description}" data-it="${config.description_it}">${description}</p>
+                <p class="project-meta">${config.category}</p>
+                <a href="${href}" class="text-link" target="_blank" rel="noopener noreferrer" data-en="View on GitHub" data-it="Vedi su GitHub">${action}</a>
+            </div>
+        </article>`;
 }
 
-// Function to create project cards from GitHub data
-async function displayGitHubProjects() {
-    const projectGrid = document.querySelector('#projects-grid');
-    
-    // Get current language preference
-    const currentLanguage = localStorage.getItem('language') || 'it';
-    
-    try {
-        const repos = await fetchGitHubProjects();
-        
-        // Append GitHub cards after the static ones
-        
-        // Create a card for each repository
-        repos.forEach(repo => {
-            // Create project card element
-            const projectCard = document.createElement('div');
-            projectCard.className = 'project-card';
-            
-            // Get repository image (using custom image if available)
-            let imageUrl;
-            if (repo.customImage) {
-                imageUrl = repo.customImage;
-            } else {
-                // Fallback to language-based image or default
-                const languageImageMap = {
-                    'Python': 'images/python-placeholder.jpg',
-                    'JavaScript': 'images/javascript-placeholder.jpg',
-                    'Java': 'images/java-placeholder.jpg',
-                    'C++': 'images/cpp-placeholder.jpg'
-                };
-                
-                imageUrl = languageImageMap[repo.language] || 'images/project1.jpg';
-            }
-            
-            // Get repository title (using custom title if available)
-            const title = repo.customTitle || repo.name;
-            const title_it = repo.customTitle_it || repo.name;
-            
-            // Get repository description (using custom description if available)
-            const description = repo.customDescription || repo.description || 'No description available.';
-            const description_it = repo.description_it || repo.customDescription || repo.description || 'Nessuna descrizione disponibile.';
-            
-            // Format the date
-            const updatedDate = new Date(repo.updated_at).toLocaleDateString('en-US', {
-                year: 'numeric',
-                month: 'short',
-                day: 'numeric'
-            });
-            
-            // Get current language preference
-            const currentLanguage = localStorage.getItem('language') || 'it';
-            
-            // Set the content based on language preference
-            const displayTitle = currentLanguage === 'it' ? title_it : title;
-            const displayDescription = currentLanguage === 'it' ? description_it : description;
-            const languageText = currentLanguage === 'it' ? `Linguaggio: ${repo.language}` : `Language: ${repo.language}`;
-            const updatedText = currentLanguage === 'it' ? `Aggiornato: ${updatedDate}` : `Updated: ${updatedDate}`;
-            const viewOnGithubText = currentLanguage === 'it' ? 'Visualizza su GitHub' : 'View on GitHub';
-            
-            // Create the HTML for the project card
-            projectCard.innerHTML = `
-                <img src="${imageUrl}" alt="${displayTitle}" class="project-image">
-                <div class="project-info">
-                    <h3 data-en="${title}" data-it="${title_it}">${displayTitle}</h3>
-                    <p data-en="${description}" data-it="${description_it}">${displayDescription}</p>
-                    <p class="repo-details">
-                        ${repo.language ? `<span class="language" data-en="Language: ${repo.language}" data-it="Linguaggio: ${repo.language}">${languageText}</span>` : ''}
-                        <span class="updated" data-en="Updated: ${updatedDate}" data-it="Aggiornato: ${updatedDate}">${updatedText}</span>
-                    </p>
-                    <a href="${repo.html_url}" class="project-link" target="_blank" rel="noopener noreferrer" data-en="View on GitHub" data-it="Visualizza su GitHub">${viewOnGithubText}</a>
-                </div>
-            `;
-            
-            // Add the card to the grid
-            projectGrid.appendChild(projectCard);
-        });
+document.addEventListener('DOMContentLoaded', () => {
+    const grid = document.querySelector('#projects-grid');
+    if (!grid) return;
 
-        // If GitHub is unavailable or rate-limited, keep the configured
-        // projects visible with their local metadata.
-        const fetchedNames = new Set(repos.map(repo => repo.name));
-        REPOSITORIES_CONFIG
-            .filter(config => !fetchedNames.has(config.name))
-            .forEach(config => {
-                const fallbackCard = document.createElement('div');
-                fallbackCard.className = 'project-card';
-
-                const displayTitle = currentLanguage === 'it' ? config.customTitle_it : config.customTitle;
-                const displayDescription = currentLanguage === 'it' ? config.description_it : config.description;
-                const viewOnGithubText = currentLanguage === 'it' ? 'Visualizza su GitHub' : 'View on GitHub';
-
-                fallbackCard.innerHTML = `
-                    <img src="${config.customImage}" alt="${displayTitle}" class="project-image">
-                    <div class="project-info">
-                        <h3 data-en="${config.customTitle}" data-it="${config.customTitle_it}">${displayTitle}</h3>
-                        <p data-en="${config.description}" data-it="${config.description_it}">${displayDescription}</p>
-                        <p class="repo-details">
-                            <span class="language" data-en="GitHub project" data-it="Progetto GitHub">${currentLanguage === 'it' ? 'Progetto GitHub' : 'GitHub project'}</span>
-                        </p>
-                        <a href="https://github.com/${GITHUB_USERNAME}/${config.name}" class="project-link" target="_blank" rel="noopener noreferrer" data-en="View on GitHub" data-it="Visualizza su GitHub">${viewOnGithubText}</a>
-                    </div>
-                `;
-
-                projectGrid.appendChild(fallbackCard);
-            });
-        
-    } catch (error) {
-        console.error('Error displaying GitHub projects:', error);
-        const errorText = currentLanguage === 'it' ? `Errore nel caricamento dei progetti: ${error.message}` : `Error loading projects: ${error.message}`;
-        const errorDiv = document.createElement('div');
-        errorDiv.className = 'error';
-        errorDiv.setAttribute('data-en', `Error loading projects: ${error.message}`);
-        errorDiv.setAttribute('data-it', `Errore nel caricamento dei progetti: ${error.message}`);
-        errorDiv.textContent = errorText;
-        projectGrid.appendChild(errorDiv);
-    }
-}
-
-// Initialize when the DOM is fully loaded
-document.addEventListener('DOMContentLoaded', displayGitHubProjects);
+    const language = localStorage.getItem('language') || 'it';
+    const contactCard = `
+        <article class="project-card project-card--contact" data-reveal>
+            <div class="project-info">
+                <p class="contact-card__title" data-en="Have a project in mind?" data-it="Hai un progetto in mente?">Hai un progetto in mente?</p>
+                <p data-en="Tell me what you are building: I am open to collaborations and consulting." data-it="Raccontami cosa stai costruendo: sono aperto a collaborazioni e consulenze.">Raccontami cosa stai costruendo: sono aperto a collaborazioni e consulenze.</p>
+                <a href="contact.html" class="text-link" data-en="Let's talk" data-it="Parliamone">Parliamone</a>
+            </div>
+        </article>`;
+    grid.insertAdjacentHTML('beforeend', REPOSITORIES_CONFIG.map(config => projectCard(config, language)).join('') + contactCard);
+});

@@ -1,183 +1,55 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="it">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tancredi Bosi - CV</title>
     <!-- Preserving original font and icon links -->
-    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <!-- These files are assumed to exist in your project directory -->
     <link rel="stylesheet" href="styles.css">
     <script src="theme-switcher.js" defer></script>
     <script src="language-switcher.js" defer></script>
     <script src="mobile-menu.js" defer></script>
-    <style>
-        /* Preserving original inline styles */
-        .download-cv-container {
-            position: absolute;
-            top: 20px;
-            right: 20px;
-            z-index: 100;
-        }
-        
-        .download-btn {
-            display: inline-flex;
-            align-items: center;
-            background-color: var(--btn-hover-bg);
-            color: var(--btn-hover-color);
-            padding: 10px 20px;
-            border-radius: 5px;
-            text-decoration: none;
-            font-weight: bold;
-            transition: transform 0.3s, opacity 0.3s;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-        }
-        
-        .download-btn i {
-            margin-right: 8px;
-        }
-        
-        .download-btn:hover {
-            transform: translateY(-3px);
-            opacity: 0.9;
-        }
-        
-        .cv-container {
-            display: grid;
-            grid-template-columns: 1fr 2fr;
-            gap: 30px;
-            padding: 40px 0;
-        }
-        
-        .cv-left-column, .cv-right-column {
-            display: flex;
-            flex-direction: column;
-        }
-        
-        .cv-section {
-            margin-bottom: 40px;
-        }
-        
-        .cv-section h2 {
-            font-size: 1.8rem;
-            margin-bottom: 20px;
-            color: var(--heading-color);
-            border-bottom: 2px solid var(--heading-color);
-            padding-bottom: 10px;
-            display: inline-block;
-        }
-        
-        .cv-item {
-            margin-bottom: 25px;
-        }
-        
-        .cv-item h3 {
-            font-size: 1.3rem;
-            margin-bottom: 5px;
-            color: var(--heading-color);
-        }
-        
-        .cv-item .period {
-            font-style: italic;
-            color: var(--text-color);
-            margin-bottom: 8px;
-            display: block;
-        }
-        
-        .cv-item p {
-            margin-bottom: 8px;
-            line-height: 1.4;
-        }
-        
-        .skills-list {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 10px;
-            margin-top: 15px;
-        }
-        
-        .skill-tag {
-            background-color: var(--btn-hover-bg);
-            color: var(--btn-hover-color);
-            padding: 5px 15px;
-            border-radius: 20px;
-            font-size: 0.9rem;
-        }
-        
-        .contact-info {
-            margin-bottom: 5px;
-        }
-        
-        .contact-info i {
-            width: 20px;
-            margin-right: 10px;
-            text-align: center;
-        }
-        
-        .project-year {
-            font-weight: bold;
-            margin-bottom: 5px;
-        }
-        
-        @media (max-width: 768px) {
-            .cv-container {
-                grid-template-columns: 1fr;
-            }
-            .download-cv-container {
-                position: static;
-                display: flex;
-                justify-content: center;
-                margin: 20px 0;
-            }
-        }
-    </style>
+    <script src="site.js" defer></script>
 </head>
 <body>
-    <!-- Preserving header and navigation -->
-    <header>
-        <div class="container">
-            <div class="logo-name-container">
-                <h1>Tancredi Bosi</h1>
-            </div>
-            <button id="mobile-menu-toggle" aria-label="Toggle navigation menu">
-                <i class="fas fa-bars"></i>
-            </button>
-            <div class="nav-buttons">
+    <header class="site-header">
+        <div class="container site-header__inner">
+            <a class="site-name" href="index.html" aria-label="Tancredi Bosi, Home">Tancredi Bosi</a>
+            <button id="mobile-menu-toggle" aria-label="Toggle navigation menu" aria-expanded="false"><i class="fas fa-bars"></i></button>
+            <nav class="nav-buttons" aria-label="Primary navigation">
                 <a href="index.html" class="btn" data-en="Home" data-it="Home">Home</a>
-                <a href="projects.html" class="btn" data-en="My Projects" data-it="I Miei Progetti">My Projects</a>
-                <a href="3dprinting.html" class="btn" data-en="3D Printing" data-it="Stampa 3D">3D Printing</a>
-                <a href="cv.html" class="btn active" data-en="My CV" data-it="Il Mio CV">My CV</a>
-                <a href="contact.html" class="btn" data-en="Contact" data-it="Contatti">Contact</a>
-                <button id="theme-toggle" title="Switch to light mode">
-                    <i id="theme-icon" class="fas fa-moon"></i>
-                </button>
-                <button id="language-toggle" title="Switch to English">
-                    <span id="language-icon">IT</span>
-                </button>
-            </div>
+                <a href="projects.html" class="btn" data-en="Projects" data-it="Progetti">Progetti</a>
+                <a href="3dprinting.html" class="btn" data-en="3D Printing" data-it="Stampa 3D">Stampa 3D</a>
+                <a href="cv.html" class="btn active" aria-current="page">CV</a>
+                <a href="contact.html" class="btn" data-en="Contact" data-it="Contatti">Contatti</a>
+                <div class="header-tools"><button id="theme-toggle" title="Switch to light mode" aria-label="Toggle color theme"><i id="theme-icon" class="fas fa-moon"></i></button><button id="language-toggle" title="Switch to English" aria-label="Switch language"><span id="language-icon">IT</span></button></div>
+            </nav>
         </div>
     </header>
 
-    <div class="container" style="position: relative;">
-        <!-- Preserving Download CV button -->
-        <div class="download-cv-container">
+    <main class="cv-main container">
+        <div class="cv-intro" data-reveal>
+            <h1>Tancredi Bosi</h1>
+            <p data-en="AI Engineer · Bologna, Italy" data-it="AI Engineer · Bologna, Italia">AI Engineer · Bologna, Italia</p>
+        </div>
+        <div class="cv-toolbar" data-reveal>
             <a href="docs/cv_it.pdf" class="download-btn" download id="download-cv-link" data-href-it="docs/cv_it.pdf" data-href-en="docs/cv_en.pdf">
                 <i class="fas fa-download"></i> <span data-en="Download CV" data-it="Scarica CV">Scarica CV</span>
             </a>
         </div>
-        
         <div class="cv-container">
             <!-- UPDATED LEFT COLUMN -->
             <div class="cv-left-column">
-                <section class="cv-section">
+                <section class="cv-section" data-reveal>
                     <h2 data-it="OBIETTIVO PROFESSIONALE" data-en="PROFESSIONAL GOAL">OBIETTIVO PROFESSIONALE</h2>
                     <div class="cv-item">
                         <p data-it="AI Engineer" data-en="AI Engineer">AI Engineer</p>
                     </div>
                 </section>
 
-                <section class="cv-section">
+                <section class="cv-section" data-reveal>
                     <h2 data-it="CONTATTI" data-en="CONTACTS">CONTATTI</h2>
                     <div class="cv-item">
                         <p class="contact-info"><i class="fas fa-mobile-alt"></i> +39 3335725485</p>
@@ -187,7 +59,7 @@
                     </div>
                 </section>
 
-                <section class="cv-section">
+                <section class="cv-section" data-reveal>
                     <h2 data-it="SOFT SKILLS" data-en="SOFT SKILLS">SOFT SKILLS</h2>
                     <div class="cv-item">
                         <ul>
@@ -201,7 +73,7 @@
                     </div>
                 </section>
 
-                <section class="cv-section">
+                <section class="cv-section" data-reveal>
                     <h2 data-it="LINGUE" data-en="LANGUAGES">LINGUE</h2>
                     <div class="cv-item">
                         <p data-it="Italiano: madrelingua" data-en="Italian: native">Italiano: madrelingua</p>
@@ -209,7 +81,7 @@
                     </div>
                 </section>
 
-                <section class="cv-section">
+                <section class="cv-section" data-reveal>
                     <h2 data-it="HOBBY" data-en="HOBBIES">HOBBY</h2>
                     <div class="cv-item">
                          <ul>
@@ -224,7 +96,7 @@
             <div class="cv-right-column">
 
                 <!-- Work experience -->
-                <section class="cv-section">
+                <section class="cv-section" data-reveal>
                     <h2 data-it="ESPERIENZA LAVORATIVA" data-en="WORK EXPERIENCE">ESPERIENZA LAVORATIVA</h2>
                     <div class="cv-item">
                         <h3>CRIF - Consultant AI Engineer</h3>
@@ -247,7 +119,7 @@
                     </div>
                 </section>
 
-                <section class="cv-section">
+                <section class="cv-section" data-reveal>
                     <h2 data-it="ISTRUZIONE E FORMAZIONE" data-en="EDUCATION AND TRAINING">ISTRUZIONE E FORMAZIONE</h2>
                     <div class="cv-item">
                         <h3 data-it="Laurea Magistrale in Intelligenza Artificiale" data-en="M.Sc. in Artificial Intelligence">Laurea Magistrale in Intelligenza Artificiale</h3>
@@ -273,7 +145,7 @@
                     </div>
                 </section>
 
-                <section class="cv-section">
+                <section class="cv-section" data-reveal>
                     <h2 data-it="PROGETTI" data-en="PROJECTS">PROGETTI</h2>
                     <div class="cv-item">
                         <h3 data-it="MCQA Legale con Agenti LLM - LLM, NLP" data-en="Legal MCQA with LLM Agents - LLM, NLP">MCQA Legale con Agenti LLM - LLM, NLP</h3>
@@ -294,7 +166,7 @@
                     </div>
                 </section>
 
-                <section class="cv-section">
+                <section class="cv-section" data-reveal>
                     <h2 data-it="COMPETENZE TECNICHE" data-en="TECHNICAL SKILLS">COMPETENZE TECNICHE</h2>
                     <div class="cv-item">
                         <h3 data-it="Linguaggi" data-en="Languages">Linguaggi</h3>
@@ -346,13 +218,8 @@
                 </section>
             </div>
         </div>
-    </div>
+    </main>
 
-    <!-- Preserving footer -->
-    <footer>
-        <div class="container">
-            <p data-it="&copy; 2026 Tancredi Bosi. Tutti i diritti riservati." data-en="&copy; 2026 Tancredi Bosi. All rights reserved.">&copy; 2026 Tancredi Bosi. Tutti i diritti riservati.</p>
-        </div>
-    </footer>
+    <footer class="site-footer"><div class="container site-footer__inner"><p><strong>Tancredi Bosi</strong> · AI Engineer</p><div><a href="mailto:tancredi.bosi@gmail.com">tancredi.bosi@gmail.com</a><a href="https://github.com/tancredibosi" target="_blank" rel="noopener noreferrer">GitHub</a><a href="https://www.linkedin.com/in/tancredi-bosi-747004298" target="_blank" rel="noopener noreferrer">LinkedIn</a></div><p>© 2026</p></div></footer>
 </body>
 </html>
