@@ -162,7 +162,7 @@
     <div class="container" style="position: relative;">
         <!-- Preserving Download CV button -->
         <div class="download-cv-container">
-            <a href="docs/cv.pdf" class="download-btn" download>
+            <a href="docs/cv_it.pdf" class="download-btn" download id="download-cv-link" data-href-it="docs/cv_it.pdf" data-href-en="docs/cv_en.pdf">
                 <i class="fas fa-download"></i> <span data-en="Download CV" data-it="Scarica CV">Scarica CV</span>
             </a>
         </div>
@@ -223,24 +223,34 @@
             <!-- UPDATED RIGHT COLUMN -->
             <div class="cv-right-column">
 
-                <!-- Section reordered to match PDF -->
+                <!-- Work experience -->
                 <section class="cv-section">
                     <h2 data-it="ESPERIENZA LAVORATIVA" data-en="WORK EXPERIENCE">ESPERIENZA LAVORATIVA</h2>
                     <div class="cv-item">
-                        <h3>Laif - Full Stack Developer</h3>
-                        <span class="period" data-it="Febbraio 2025 - in corso" data-en="February 2025 - ongoing">Febbraio 2025 - in corso</span>
-                        <p data-it="Full Stack Developer con focus su AI e backend, utilizzando OpenAI, Pydantic, SQL, FastApi e Postgres." data-en="Full Stack Developer with a focus on AI and backend, using OpenAI, Pydantic, SQL, FastApi and Postgres.">Full Stack Developer con focus su AI e backend, utilizzando OpenAI, Pydantic, SQL, FastApi e Postgres.</p>
+                        <h3>CRIF - Consultant AI Engineer</h3>
+                        <span class="period" data-it="Aprile 2026 - in corso | Bologna, Italia" data-en="April 2026 - present | Bologna, Italy">Aprile 2026 - in corso | Bologna, Italia</span>
+                        <p data-it="Consulenza su iniziative di AI engineering, progettando e realizzando soluzioni basate su LLM e sui dati nel settore delle informazioni finanziarie." data-en="Consulting on AI engineering initiatives, designing and delivering LLM-based and data-driven solutions in the financial information sector.">Consulenza su iniziative di AI engineering, progettando e realizzando soluzioni basate su LLM e sui dati nel settore delle informazioni finanziarie.</p>
+                    </div>
+                    <div class="cv-item">
+                        <h3>LAIF S.R.L. - AI Engineer</h3>
+                        <span class="period" data-it="Giugno 2025 - in corso | Bologna, Italia" data-en="June 2025 - present | Bologna, Italy">Giugno 2025 - in corso | Bologna, Italia</span>
+                        <p data-it="AI Engineer e Backend: sviluppo di servizi di produzione con Python (FastAPI), PostgreSQL e SQLAlchemy su AWS. Funzionalità LLM end-to-end con OpenAI, OpenRouter, AWS Bedrock e LangChain: pipeline RAG e output strutturati con Pydantic." data-en="AI and Backend Engineer building production services with Python (FastAPI), PostgreSQL and SQLAlchemy on AWS. Ship LLM-powered features end-to-end with OpenAI, OpenRouter, AWS Bedrock and LangChain: RAG pipelines and Pydantic structured outputs.">AI Engineer e Backend: sviluppo di servizi di produzione con Python (FastAPI), PostgreSQL e SQLAlchemy su AWS. Funzionalità LLM end-to-end con OpenAI, OpenRouter, AWS Bedrock e LangChain: pipeline RAG e output strutturati con Pydantic.</p>
+                    </div>
+                    <div class="cv-item">
+                        <h3>LAIF S.R.L. - Full-Stack Developer</h3>
+                        <span class="period" data-it="Febbraio 2025 - Maggio 2025 | Bologna, Italia" data-en="February 2025 - May 2025 | Bologna, Italy">Febbraio 2025 - Maggio 2025 | Bologna, Italia</span>
+                        <p data-it="Tirocinio curriculare: sviluppo backend con FastAPI e PostgreSQL e deployment di applicazioni web su AWS." data-en="Curricular internship: backend development with FastAPI and PostgreSQL, plus AWS-based deployment of web applications.">Tirocinio curriculare: sviluppo backend con FastAPI e PostgreSQL e deployment di applicazioni web su AWS.</p>
                     </div>
                     <div class="cv-item">
                         <h3 data-it="Lezioni Private Materie Scientifiche - Insegnante" data-en="Private Tutoring in Scientific Subjects - Teacher">Lezioni Private Materie Scientifiche - Insegnante</h3>
-                        <span class="period">2020 - 2025</span>
+                        <span class="period" data-it="2020 - 2025 | Bologna, Italia" data-en="2020 - 2025 | Bologna, Italy">2020 - 2025 | Bologna, Italia</span>
                     </div>
                 </section>
 
                 <section class="cv-section">
                     <h2 data-it="ISTRUZIONE E FORMAZIONE" data-en="EDUCATION AND TRAINING">ISTRUZIONE E FORMAZIONE</h2>
                     <div class="cv-item">
-                        <h3 data-it="Laurea Magistrale in Artificial Intelligence" data-en="Master's Degree in Artificial Intelligence">Laurea Magistrale in Artificial Intelligence</h3>
+                        <h3 data-it="Laurea Magistrale in Intelligenza Artificiale" data-en="M.Sc. in Artificial Intelligence">Laurea Magistrale in Intelligenza Artificiale</h3>
                         <span class="period" data-it="Bologna, 2023 - 2025" data-en="Bologna, 2023 - 2025">Bologna, 2023 - 2025</span>
                         <p data-it="Presso: Alma Mater Studiorum - Università di Bologna" data-en="At: Alma Mater Studiorum - University of Bologna">Presso: Alma Mater Studiorum - Università di Bologna</p>
                         <p data-it="Indirizzo: Computer systems engineering LM-32" data-en="Program: Computer systems engineering LM-32">Indirizzo: Computer systems engineering LM-32</p>
@@ -249,10 +259,10 @@
                     </div>
                     
                     <div class="cv-item">
-                        <h3 data-it="Laurea Triennale in Ingegneria dell'Automazione" data-en="Bachelor's Degree in Automation Engineering">Laurea Triennale in Ingegneria dell'Automazione</h3>
+                        <h3 data-it="Laurea Triennale in Ingegneria dell'Automazione" data-en="B.Sc. in Automation Engineering">Laurea Triennale in Ingegneria dell'Automazione</h3>
                         <span class="period">Bologna, 2020 - 2023</span>
                         <p data-it="Presso: Alma Mater Studiorum - Università di Bologna" data-en="At: Alma Mater Studiorum - University of Bologna">Presso: Alma Mater Studiorum - Università di Bologna</p>
-                        <p data-it="Tesi: Machine Learning e confronto fra Regressione Logistica e Support Vector Machine" data-en="Thesis: Machine Learning and comparison between Logistic Regression and Support Vector Machine">Tesi: Machine Learning e confronto fra Regressione Logistica e Support Vector Machine</p>
+                        <p data-it="Tesi: Machine Learning e confronto tra Regressione Logistica e SVM" data-en="Thesis: Machine Learning and comparison between Logistic Regression and SVM">Tesi: Machine Learning e confronto tra Regressione Logistica e SVM</p>
                         <p data-it="Votazione finale: 110/110 con Lode" data-en="Final grade: 110/110 with honors">Votazione finale: 110/110 con Lode</p>
                     </div>
 
@@ -266,20 +276,21 @@
                 <section class="cv-section">
                     <h2 data-it="PROGETTI" data-en="PROJECTS">PROGETTI</h2>
                     <div class="cv-item">
-                        <h3>Sentence Reordeing - DL, NLP</h3>
-                        <p data-it="Riordinamento di frasi fornite con un ordinamento casuale delle parole tramite l'utilizzo di Transformers ed Embeddings." data-en="Reordering of sentences provided with random word ordering using Transformers and Embeddings.">Riordinamento di frasi fornite con un ordinamento casuale delle parole tramite l'utilizzo di Transformers ed Embeddings.</p>
+                        <h3 data-it="MCQA Legale con Agenti LLM - LLM, NLP" data-en="Legal MCQA with LLM Agents - LLM, NLP">MCQA Legale con Agenti LLM - LLM, NLP</h3>
+                        <p data-it="Sistema multi-agente basato su Small Language Models open-source per la classificazione delle risposte in MCQA legali, con ricerca web e collaborazione tra agenti." data-en="Multi-agent system built on open-source small language models for response classification on legal MCQA, with web search and agent collaboration.">Sistema multi-agente basato su Small Language Models open-source per la classificazione delle risposte in MCQA legali, con ricerca web e collaborazione tra agenti.</p>
                     </div>
-                     <div class="cv-item">
-                        <h3>Legal MCQA with LLM Agents - LLM, NLP</h3>
-                        <p data-it="Sistema multi-agente basato su LLM open-source per la classificazione della risposta corretta attraverso ricerche Web." data-en="Multi-agent system based on open-source LLMs for classifying the correct answer through Web searches.">Sistema multi-agente basato su LLM open-source per la classificazione della risposta corretta attraverso ricerche Web.</p>
+                    <div class="cv-item">
+                        <h3>Sentence Reordering - DL, NLP</h3>
+                        <p data-it="Ricostruzione dell'ordine originale delle parole di una frase a partire da una permutazione casuale, tramite Transformer ed embedding." data-en="Reordering of input sentences from a random word ordering using Transformers and learned embeddings.">Ricostruzione dell'ordine originale delle parole di una frase a partire da una permutazione casuale, tramite Transformer ed embedding.</p>
                     </div>
-                     <div class="cv-item">
-                        <h3>Sexist tweet classification - LLM, NLP</h3>
-                        <p data-it="Progetti NLP sulla classificazione di tweet sessisti con LSTM, ROBERTa e tecniche di prompting LLM." data-en="NLP projects on the classification of sexist tweets with LSTM, ROBERTa and LLM prompting techniques.">Progetti NLP sulla classificazione di tweet sessisti con LSTM, ROBERTa e tecniche di prompting LLM.</p>
+                    <div class="cv-item">
+                        <h3 data-it="LayerCost - Full-stack, Prodotto live" data-en="LayerCost - Full-stack, Live product">LayerCost - Full-stack, Prodotto live</h3>
+                        <p data-it="Calcolatore di preventivi per stampe 3D pensato per una stamperia reale: costo e prezzo di stampe singole o lotti, import .3mf. Prodotto live e open source." data-en="3D-printing quote calculator built for a real print shop: cost and price for single prints or batches, .3mf import. Live and open source.">Calcolatore di preventivi per stampe 3D pensato per una stamperia reale: costo e prezzo di stampe singole o lotti, import .3mf. Prodotto live e open source.</p>
+                        <p><a href="https://layercost.vercel.app" target="_blank" rel="noopener noreferrer">layercost.vercel.app</a></p>
                     </div>
-                     <div class="cv-item">
-                        <h3>Synthetic Data Generation - SDV</h3>
-                        <p data-it="Generazione di dati sintetici polarizzati nell'ambito dell'HR." data-en="Generation of polarized synthetic data in the HR field.">Generazione di dati sintetici polarizzati nell'ambito dell'HR.</p>
+                    <div class="cv-item">
+                        <h3 data-it="Moth - STT, Progetto personale" data-en="Moth - STT, Personal project">Moth - STT, Progetto personale</h3>
+                        <p data-it="Modello speech-to-text italiano/inglese per il browser, con code-switching: encoder Whisper-tiny + testa CTC, ~11,6 M parametri, 19,4 MB." data-en="Italian/English code-switching speech-to-text model built for the browser: Whisper-tiny encoder + CTC head, ~11.6M parameters, 19.4 MB.">Modello speech-to-text italiano/inglese per il browser, con code-switching: encoder Whisper-tiny + testa CTC, ~11,6 M parametri, 19,4 MB.</p>
                     </div>
                 </section>
 
@@ -305,6 +316,7 @@
                             <span class="skill-tag">Langroid</span>
                             <span class="skill-tag">OpenCV</span>
                             <span class="skill-tag">Hugging Face</span>
+                            <span class="skill-tag">ONNX Runtime</span>
                         </div>
                     </div>
 
@@ -319,6 +331,7 @@
                             <span class="skill-tag">aws</span>
                             <span class="skill-tag">Postgres</span>
                             <span class="skill-tag">React</span>
+                            <span class="skill-tag">Supabase</span>
                         </div>
                     </div>
                     
@@ -338,7 +351,7 @@
     <!-- Preserving footer -->
     <footer>
         <div class="container">
-            <p data-it="&copy; 2025 Tancredi Bosi. Tutti i diritti riservati." data-en="&copy; 2025 Tancredi Bosi. All rights reserved.">&copy; 2025 Tancredi Bosi. Tutti i diritti riservati.</p>
+            <p data-it="&copy; 2026 Tancredi Bosi. Tutti i diritti riservati." data-en="&copy; 2026 Tancredi Bosi. All rights reserved.">&copy; 2026 Tancredi Bosi. Tutti i diritti riservati.</p>
         </div>
     </footer>
 </body>

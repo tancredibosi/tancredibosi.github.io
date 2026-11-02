@@ -14,8 +14,8 @@ const REPOSITORIES_CONFIG = [
         customTitle: 'Legal MCQA with LLM Agents', // Custom title to display
         customTitle_it: 'MCQA Legale con Agenti LLM', // Italian title
         customImage: 'images/PROJECTMAIN_LLM_Agents_Multiple-Choice_QA.jpg', // Custom image path
-        description: 'Multi-agent system based on open-source LLM for the classification of the correct answer through Web searches.', // Set to null to use GitHub description, or provide a custom one
-        description_it: 'Sistema multi-agente basato su LLM open-source per la classificazione della risposta corretta attraverso ricerche Web.'
+        description: 'Multi-agent system built on open-source small language models for response classification on legal MCQA, with web search and agent collaboration.', // Set to null to use GitHub description, or provide a custom one
+        description_it: 'Sistema multi-agente basato su Small Language Models open-source per la classificazione delle risposte in MCQA legali, con ricerca web e collaborazione tra agenti.'
     },
     {
         name: 'nlp-assignments',
@@ -35,8 +35,8 @@ const REPOSITORIES_CONFIG = [
     },
     {
         name: 'AIII_synthetic_dataset',
-        customTitle: 'HR Syntetic Data Generation',
-        customTitle_it: 'Generazionne dati sintetici per HR',
+        customTitle: 'HR Synthetic Data Generation',
+        customTitle_it: 'Generazione dati sintetici per HR',
         customImage: 'images/PROJECTMAIN_AIII_synthetic_dataset.jpg',
         description: 'Polarized synthetic data generation of hiring data using SDV python library.',
         description_it: 'Generazione di dati sintetici polarizzati nell\'ambito HR.'
@@ -109,7 +109,7 @@ async function fetchGitHubProjects() {
 
 // Function to create project cards from GitHub data
 async function displayGitHubProjects() {
-    const projectGrid = document.querySelector('.project-grid');
+    const projectGrid = document.querySelector('#github-projects-grid');
     
     // Get current language preference
     const currentLanguage = localStorage.getItem('language') || 'it';

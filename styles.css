@@ -290,6 +290,21 @@ header p {
     color: var(--heading-color);
 }
 
+.projects-subheading {
+    text-align: center;
+    font-size: 1.4rem;
+    margin: -12px 0 24px;
+    color: var(--heading-color);
+    font-weight: 400;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    opacity: 0.75;
+}
+
+.projects-subheading--spaced {
+    margin-top: 60px;
+}
+
 .project-grid {
     display: flex;
     flex-direction: column;
@@ -469,6 +484,21 @@ header p {
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 }
 
+.project-link-disabled {
+    background-color: transparent;
+    border: 1px solid var(--border-color);
+    color: var(--text-color);
+    cursor: default;
+    opacity: 0.65;
+}
+
+.project-link-disabled:hover {
+    background-color: transparent;
+    color: var(--text-color);
+    transform: none;
+    box-shadow: none;
+}
+
 /* GitHub projects specific styles */
 .loading, .error {
     grid-column: 1 / -1;
@@ -501,8 +531,7 @@ footer {
     text-align: center;
     padding: 10px 0;
     border-top: 1px solid var(--border-color);
-    position: fixed;
-    bottom: 0;
+    position: relative;
     width: 100%;
     z-index: 100;
 }

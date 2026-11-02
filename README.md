@@ -1,2 +1,2 @@
 # tancredibosi.github.io
-Artificial Intelligence student (UniBo)
+Personal portfolio of Tancredi Bosi — AI Engineer.

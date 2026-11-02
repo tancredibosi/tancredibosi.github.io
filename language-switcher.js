@@ -46,6 +46,16 @@ document.addEventListener('DOMContentLoaded', function() {
         
         // Translate all elements with data-en and data-it attributes
         translateElements(language);
+
+        // Update links that depend on the language
+        updateLanguageLinks(language);
+    }
+
+    // Update href values for links with language-specific targets
+    function updateLanguageLinks(language) {
+        document.querySelectorAll('[data-href-it][data-href-en]').forEach(function(element) {
+            element.setAttribute('href', language === 'it' ? element.getAttribute('data-href-it') : element.getAttribute('data-href-en'));
+        });
     }
     
     // Function to translate all elements with data-en and data-it attributes
