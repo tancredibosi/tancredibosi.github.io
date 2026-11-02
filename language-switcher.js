@@ -1,6 +1,7 @@
 // Apply language preference immediately before DOM is fully loaded
 const savedLanguage = localStorage.getItem('language') || 'it';
 document.documentElement.setAttribute('data-language', savedLanguage);
+document.documentElement.setAttribute('lang', savedLanguage);
 
 document.addEventListener('DOMContentLoaded', function() {
     // Get language toggle button
@@ -12,6 +13,7 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Apply the saved language on page load
     document.documentElement.setAttribute('data-language', currentLanguage);
+    document.documentElement.setAttribute('lang', currentLanguage);
     
     // Update icon and translate content based on current language
     updateLanguage(currentLanguage);
@@ -26,6 +28,7 @@ document.addEventListener('DOMContentLoaded', function() {
         
         // Update the HTML attribute
         document.documentElement.setAttribute('data-language', newLanguage);
+        document.documentElement.setAttribute('lang', newLanguage);
         
         // Save the preference to localStorage
         localStorage.setItem('language', newLanguage);
